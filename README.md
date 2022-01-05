@@ -11,7 +11,10 @@ I use the following main python packages which are publicly available online:
 - xarray (loading in and working with .nc data files)
 
 # Analysis Scripts
-
+ With the following two scripts I create the perturbation forcing for all experiments:
+ [JRA55_preparation_PO_AO_and_IO_and_SO_input_for_perturbations_1972-2017.ipynb](JRA55_preparation_PO_AO_and_IO_and_SO_input_for_perturbations_1972-2017.ipynb) and [JRA55_preparation_TROPICS_input_for_perturbations_1972-2017.ipynb](JRA55_preparation_TROPICS_input_for_perturbations_1972-2017.ipynb)
+ 
+This includes first creating a forcing mask for repeat decade (RDF) and interannual forcing (IAF) regions. In the Southern Ocean-only experiment, for example, IAF is applied south of 44°S while the remaining ocean north of 44°S is experiencing RDF. There is a boundary region between the two forcing fields of four grid cells. Then I make sure that the two forcing fields match in their calendar. Since the RDF is cycling through a single decade and the IAF is going from 1972-2017, there are some issues with leap days which I solve. I then write the final forcing data into a .netcdf file.
 
 # List of Figures
 __Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
