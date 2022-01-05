@@ -42,7 +42,7 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 - storage folder: `/g/data/e14/mv7494`
 
 [Location of model runs](location_model_runs.png)
-
+![Location of model runs](https://github.com/mauricehuguenin/heat_distribution/location_model_runs.png?raw=true)
 
 ```
 | YYYY | MM | DD | ens. member 1 | ens. member 2 | ens. member 3 | ... |
