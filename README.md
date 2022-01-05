@@ -4,11 +4,11 @@ Analysis Scripts and Data used for the submission:
 Huguenin, M. F., Holmes, R. M. and England, M. H. (2022). Drivers and distribution of global ocean heat uptake over the last half century. *Nature Geoscience*
 
 # Packages and Functions
-I use the following main python packages which are publicly available online:
+I use the following python packages which are publicly available online:
 
-- cartopy (creating maps)
-- numpy (numerical operations)
-- xarray (loading in and working with .nc data files)
+- [cartopy](https://scitools.org.uk/cartopy/docs/latest/) for creating maps 
+- [numpy](https://numpy.org/) for numerical operations
+- [xarray](https://xarray.pydata.org/en/stable/) for loading in and working with .nc data files
 
 # Analysis Scripts
  With the following two scripts I create the perturbation forcing for all experiments:
