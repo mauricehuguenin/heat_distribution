@@ -1,15 +1,14 @@
-# europe_circulation_types
-Analysis Scripts and Data used for the publication: 
+# heat_distribution
+Analysis Scripts and Data used for the submission: 
 
-Huguenin, M. F., Fischer, E. M., Kotlarski, S., Scherrer, S. C., Schwierz, C., & Knutti, R. (2020). Lack of Change in the Projected Frequency and Persistence of Atmospheric Circulation Types Over Central Europe. *Geophysical Research Letters*, **47**. [https://doi.org/10.1029/2019GL086132](https://doi.org/10.1029/2019GL086132)
+Huguenin, M. F., Fischer, Holmes, R. M. and England, M. H. (2022). Drivers and distribution of global ocean heat uptake over the last half century. *Nature Geoscience*
 
 # Packages and Functions
-I use the following packages which are publicly available online:
+I use the following main python packages which are publicly available online:
 
-- [ggplot2](https://ggplot2.tidyverse.org/reference/ggplot.html) is a visualization package for R that initializes a ggplot object. I quote from the webpage: "It can be used to declare the input data frame for a graphic and to specify the set of plot aesthetics intended to be common throughout all subsequent layers unless specifically overridden."
-
-- the [m_map](https://www.eoas.ubc.ca/~rich/map.html) package to visualize spatial maps. Pawlowicz, R., 2019. "M_Map: A mapping package for MATLAB", version 1.4k, [Computer software], available online at www.eoas.ubc.ca/~rich/map.html.
-
+- cartopy (creating maps)
+- numpy (numerical operations)
+- xarray (loading in and working with .nc data files)
 
 # Analysis Scripts
 
@@ -19,35 +18,26 @@ I use the following packages which are publicly available online:
 - [preprocessing_cesm_maps_data.py](preprocessing_cesm_maps_data.py) and [preprocessing_cmip5_maps_data.py](preprocessing_cmip5_maps_data.py) are the scripts used to prepare the raw model data sets for the circulation type maps in MATLAB (i.e. extracting Central European region, only selecting specific variables, only selecting 1980-2099 time period, ...)
 
 # List of Figures
-__Fig. 1__: Calculating the persistence measure as the regression fit of the consecutive circulation type period distribution with the script [Fig1_persistence_measure_circulation_type.R](Fig1_persistence_measure_circulation_type.R)
+__Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
+[Fig1_persistence_measure_circulation_type.R](Fig1_persistence_measure_circulation_type.R)
 
-__Fig. 2__: Calculating the seasonal frequency of circulation types and their projected change for the future time period 2070-2099 in [Fig2_frequency_circulation_type_and_future_change.R](Fig2_frequency_circulation_type_and_future_change.R)
+__Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing [Fig2_frequency_circulation_type_and_future_change.R](Fig2_frequency_circulation_type_and_future_change.R)
 
-__Fig. 3__: Persistence change visualized with the summary figure script [Fig3_persistence_change_summer_and_winter_and_ensemble_variability_summary.R](Fig3_persistence_change_summer_and_winter_and_ensemble_variability_summary.R) and using the data saved in [data/workspace_persistence_for_summary_figure_CESM_CMIP5.RData](data/workspace_persistence_for_summary_figure_CESM_CMIP5.RData)
+__Fig. 3__: Simulated global and regional OHC changes due to thermal/wind trends and due to atmospheric trends over individual regions
 
-__Fig. 4__: Summary figure created with [Fig4_summary_change_persistence_frequency_temperature_precipitation.R](Fig4_summary_change_persistence_frequency_temperature_precipitation.R) using data saved in the two workspaces [data/workspace_frequency_for_summary_figure_CESM_CMIP5.RData](data/workspace_frequency_for_summary_figure_CESM_CMIP5.RData) and [data/workspace_persistence_for_summary_figure_CESM_CMIP5.RData](data/workspace_persistence_for_summary_figure_CESM_CMIP5.RData)
+__Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave and sensible heat flux trends over 1972--2017
 
-
+__Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
  
 - Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
 
-# Data folder
+# Model output data
 
-- [data/WTC_MCH_19570901-20180831.dat](data/WTC_MCH_19570901-20180831.dat) is the COST733class output file from the ERA-40/-Interim reanalysis product obtained from MeteoSwiss. The column 'wkwtg1d0' represents output obtained from the GWL method using geopotential height at 500 hPa and 10 circulation types (i.e. the data we used in this study)
+- spin-up: 
+- simulation with full interannual forcing:
+- simulation with Southern Ocean-only forcing:
+- 
 
-- [data/cost_CESM12-LE_historical_rcp85_1960-2099_Z500.dat](data/cost_CESM12-LE_historical_rcp85_1960-2099_Z500.dat) is the COST733class classification output for the CESM data using geopotential height fields at 500 hPa
-
-- [data/cost_CMIP5_historical_rcp85_1960-2099_Z500.dat](data/cost_CMIP5_historical_rcp85_1960-2099_Z500.dat) is the COST733class classification output for the CMIP5 data using geopotential height fields at 500 hPa
-
-- [data/cost_CESM12-LE_historical_rcp85_1960-2099_PSL.dat](data/cost_CESM12-LE_historical_rcp85_1960-2099_PSL.dat) is the COST733class classification output for the CESM data using sea level pressure fields
-
-- [data/cost_CMIP5_historical_rcp85_1960-2099_PSL.dat](data/cost_CMIP5_historical_rcp85_1960-2099_PSL.dat) is the COST733class classification output for the CMIP5 data using sea level pressure fields 
-
-- [data/cost_CMIP5_historical_rcp85_1960-2099_uas.dat](data/cost_CMIP5_historical_rcp85_1960-2099_uas.dat) is the COST733class classification output for the CMIP5 data using eastward near-surface wind as input
-
-- [data/date.dat](data/date.dat) and [data/date_no_leap_days.dat](data/date_no_leap_days.dat) contain the first three columns with YYYY | MM | DD data for a period with leap days and without leap days
-
-COST733class classification output is given the following way:
 
 ```
 | YYYY | MM | DD | ens. member 1 | ens. member 2 | ens. member 3 | ... |
@@ -57,6 +47,3 @@ COST733class classification output is given the following way:
 | 2099 | 12 | 31 |       1       |       4       |       3       | ... |
 
 ```
-where `1` is the westerly circulation type, `2`, north-westerly, `NaN` is a leap day, ...  
-
-More information on the CDO and COST733class commands can also be found in the Technical Appendix of the Supporting Information.
