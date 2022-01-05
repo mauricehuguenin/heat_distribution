@@ -31,13 +31,13 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
  
  Supporting Info figures:
 __Fig. S1__: Total ocean heat content anomalies in ACCESS-OM2
-[]()
+[FigS1_time_series_last_cycle_all_three_resolutions_of_ACCESS-OM2.ipynb](FigS1_time_series_last_cycle_all_three_resolutions_of_ACCESS-OM2.ipynb)
 
 __Fig. S2__: Experimental design of the new spin-up
-[]()
+[FigS2_drift_calculations_in_the_total_ocean_heat_content.ipynb](FigS2_drift_calculations_in_the_total_ocean_heat_content.ipynb)
 
 __Fig. S3__: Simulated global ocean heat content in OMIP-2 and CMIP6
-[]()
+[Same script as for Fig. 1.](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
 
 __Fig. S4__: Spatial distribution of OHU, transport, storage and SST trends over 1972-2017 in the wind-only and thermal-only forcing experiment
 [Same script as for Fig. 2.](Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
