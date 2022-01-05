@@ -36,12 +36,13 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 - Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
 []()
 
-# Model output data
+# Model output data on the NCI supercomputer gadi
 
-- spin-up: 
-- simulation with full interannual forcing:
-- simulation with Southern Ocean-only forcing:
-- 
+- home folder from where I run the model: `/home/561/mv7494/`
+- storage folder: `/g/data/e14/mv7494`
+
+![model run location](location_model_run.png)
+
 
 
 ```
