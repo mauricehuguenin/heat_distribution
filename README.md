@@ -43,14 +43,16 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 
 # Model output data on the NCI supercomputer gadi
 
-- home folder from where I run the model: `/home/561/mv7494/`:
+- model files in   : `/home/561/mv7494/`:
+- storage folder in: `/g/data/e14/mv7494`
 ```
-| Description | model files in `/home/561/mv7494/` | storage files in  `/g/data/e14/mv7494/` |
-| pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset | 1deg_jra55_rdf_spinup_PI_Offset/ |
-
-
+| Description of simulation     | Model files               | Storage                                      |
+| Pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset  | 1deg_jra55_rdf_spinup_PI_Offset/             |
+| ""  "" continued with scaling | 1deg_jra55_iaf_PI_Offset  | 1deg_jra55_rdf_spinup_PI_Offset_for_Control/ |
+| ""  "" continued as control   | 1deg_jra55_iaf_Control    | 1deg_jra55_iaf_branch2000_Control_PI_Offset/ |
+| Full interannual forcing      | 1deg_jra55_iaf_branch2000 | 1deg_jra55_iaf_branch2000_PI_Offset/         |
 ```
 
-- storage folder: `/g/data/e14/mv7494`
+
 
 [Location of model runs](location_model_runs.png)
