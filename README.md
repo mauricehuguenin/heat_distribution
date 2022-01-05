@@ -29,7 +29,8 @@ __Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave 
 __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
 [Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
  
- Supporting Info figures:
+ ## Supporting Info figures:
+ 
 __Fig. S1__: Total ocean heat content anomalies in ACCESS-OM2
 [FigS1_time_series_last_cycle_all_three_resolutions_of_ACCESS-OM2.ipynb](FigS1_time_series_last_cycle_all_three_resolutions_of_ACCESS-OM2.ipynb)
 
