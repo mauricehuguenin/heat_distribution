@@ -19,18 +19,23 @@ I use the following main python packages which are publicly available online:
 
 # List of Figures
 __Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
+
 [Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
 
 __Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing
+
 [Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb](Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. 3__: Simulated global and regional OHC changes due to thermal/wind trends and due to atmospheric trends over individual regions
+
 [Fig3_time_series_and_histograms_perturbation_simulations.ipynb](Fig3_time_series_and_histograms_perturbation_simulations.ipynb)
 
 __Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave and sensible heat flux trends over 1972--2017
-[zonal_mean_integrals.ipynb](zonal_mean_integrals.ipynb)
+
+[Fig4_zonal_mean_integrals.ipynb](Fig4_zonal_mean_integrals.ipynb)
 
 __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
+
 [Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
  
 - Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
