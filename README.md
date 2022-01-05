@@ -19,17 +19,22 @@ I use the following main python packages which are publicly available online:
 
 # List of Figures
 __Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
-[Fig1_persistence_measure_circulation_type.R](Fig1_persistence_measure_circulation_type.R)
+[]()
 
-__Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing [Fig2_frequency_circulation_type_and_future_change.R](Fig2_frequency_circulation_type_and_future_change.R)
+__Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing
+[]()
 
 __Fig. 3__: Simulated global and regional OHC changes due to thermal/wind trends and due to atmospheric trends over individual regions
+[]()
 
 __Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave and sensible heat flux trends over 1972--2017
+[zonal_mean_integrals.ipynb](zonal_mean_integrals.ipynb)
 
 __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
+[]()
  
 - Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
+[]()
 
 # Model output data
 
