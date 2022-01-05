@@ -45,7 +45,8 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 
 - home folder from where I run the model: `/home/561/mv7494/`:
 ```
-| pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset | 1deg_jra55_rdf_spinup_PI_Offset/
+| Description | model files in `/home/561/mv7494/` | storage files in  `/g/data/e14/mv7494/` |
+| pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset | 1deg_jra55_rdf_spinup_PI_Offset/ |
 
 
 ```
