@@ -60,8 +60,8 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 | ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
 ```
 
-* `/home/561/mv7494/`:
-** `/g/data/e14/mv7494`
+- * `/home/561/mv7494/`
+- ** `/g/data/e14/mv7494`
 
 
 [Location of model runs](location_model_runs.png)
