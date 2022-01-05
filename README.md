@@ -42,12 +42,3 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 - storage folder: `/g/data/e14/mv7494`
 
 [Location of model runs](location_model_runs.png)
-
-```
-| YYYY | MM | DD | ens. member 1 | ens. member 2 | ens. member 3 | ... |
-| 1960 | 01 | 01 |       1       |       2       |       4       | ... |
-| 1960 | 01 | 02 |       1       |       1       |       3       | ... |
-| .... | .. | .. |      ...      |      ...      |      ...      | ... |
-| 2099 | 12 | 31 |       1       |       4       |       3       | ... |
-
-```
