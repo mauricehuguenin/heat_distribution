@@ -41,7 +41,7 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 - home folder from where I run the model: `/home/561/mv7494/`
 - storage folder: `/g/data/e14/mv7494`
 
-![Location of model runs](https://github.com/mauricehuguenin/heat_distribution/location_model_runs?raw=true)
+[Location of model runs](location_model_runs.png)
 
 
 ```
