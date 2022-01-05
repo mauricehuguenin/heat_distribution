@@ -19,29 +19,50 @@ I use the following main python packages which are publicly available online:
 
 # List of Figures
 __Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
-- [Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
+[Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
 
 __Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing
-
 [Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb](Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. 3__: Simulated global and regional OHC changes due to thermal/wind trends and due to atmospheric trends over individual regions
-
 [Fig3_time_series_and_histograms_perturbation_simulations.ipynb](Fig3_time_series_and_histograms_perturbation_simulations.ipynb)
 
 __Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave and sensible heat flux trends over 1972--2017
-
 [Fig4_zonal_mean_integrals.ipynb](Fig4_zonal_mean_integrals.ipynb)
 
 __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
-
 [Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
  
- Supplementary Info figures:
-__Fig. S1__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
+ Supporting Info figures:
+__Fig. S1__: Total ocean heat content anomalies in ACCESS-OM2
+[]()
 
-[Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
+__Fig. S2__: Experimental design of the new spin-up
+[]()
 
+__Fig. S3__: Simulated global ocean heat content in OMIP-2 and CMIP6
+[]()
+
+__Fig. S4__: Spatial distribution of OHU, transport, storage and SST trends over 1972-2017 in the wind-only and thermal-only forcing experiment
+[Same script as for Fig. 2](Fig2_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
+
+__Fig. S5__: As in Fig. S4. but for the Southern Ocean-only experiment.
+[]()
+
+__Fig. S6__: Ocean heat content changes since 1972 in the basin-wide simulations
+[]()
+
+__Fig. S7__: As in Fig. S4. but for the Pacific, Indian and Atlantic Ocean-only experiments.
+[]()
+
+__Fig. S8__: Maximum strength of the Atlantic Meridional Overturning (AMOC) Streamfunction at 26°N between 103°W and 5°W
+[]()
+
+__Fig. S9__: Ocean heat content trends over 1992-2011 in the Tropics 30°S-30°N experiment
+[]()
+
+__Fig. S10__: Spatial distribution of ocean heat uptake and storage trends over 1997-2017 in the simulation with full interannual forcing
+[]()
 
 # Model output data on the NCI supercomputer gadi
 ```
