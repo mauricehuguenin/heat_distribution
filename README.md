@@ -38,8 +38,11 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 
 [Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
  
-- Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
-[]()
+ Supplementary Info figures:
+__Fig. S1__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
+
+[Fig5_schematic_OHC_map_and_side_panels.ipynb](Fig5_schematic_OHC_map_and_side_panels.ipynb) and [Fig5_schematic_OHC.ppt](Fig5_schematic_OHC.ppt)
+
 
 # Model output data on the NCI supercomputer gadi
 ```
