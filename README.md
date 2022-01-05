@@ -55,7 +55,7 @@ __Fig. S8__: Maximum strength of the Atlantic Meridional Overturning (AMOC) Stre
 [FigS8_overturning_stream_function_in_both_cartesian_neutral_density_space_ACCESS-OM2-1_new.ipynb](FigS8_overturning_stream_function_in_both_cartesian_neutral_density_space_ACCESS-OM2-1_new.ipynb)
 
 __Fig. S9__: Ocean heat content trends over 1992-2011 in the Tropics 30°S-30°N experiment
-[]()
+[Same script as for Fig. S5.](FigS5_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. S10__: Spatial distribution of ocean heat uptake and storage trends over 1997-2017 in the simulation with full interannual forcing
 []()
