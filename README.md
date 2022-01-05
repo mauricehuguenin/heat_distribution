@@ -1,7 +1,7 @@
 # heat_distribution
 Analysis Scripts and Data used for the submission: 
 
-Huguenin, M. F., Fischer, Holmes, R. M. and England, M. H. (2022). Drivers and distribution of global ocean heat uptake over the last half century. *Nature Geoscience*
+Huguenin, M. F., Holmes, R. M. and England, M. H. (2022). Drivers and distribution of global ocean heat uptake over the last half century. *Nature Geoscience*
 
 # Packages and Functions
 I use the following main python packages which are publicly available online:
@@ -31,7 +31,7 @@ __Fig. 4__: Southern Hemisphere ocean heat uptake, temperature and net longwave 
 [zonal_mean_integrals.ipynb](zonal_mean_integrals.ipynb)
 
 __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transport over the last half century in different hindcast simulations
-[]()
+[schematic_OHC_map_and_side_panels.ipynb](schematic_OHC_map_and_side_panels.ipynb)
  
 - Script for Figs. S3-7 includes the analysis of past time series and trends for the four main circulation types
 []()
