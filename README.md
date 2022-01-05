@@ -42,17 +42,25 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 []()
 
 # Model output data on the NCI supercomputer gadi
-
-- model files in   : `/home/561/mv7494/`:
-- storage folder in: `/g/data/e14/mv7494`
 ```
-| Description of simulation     | Model files               | Storage                                      |
-| Pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset  | 1deg_jra55_rdf_spinup_PI_Offset/             |
-| ""  "" continued with scaling | 1deg_jra55_iaf_PI_Offset  | 1deg_jra55_rdf_spinup_PI_Offset_for_Control/ |
-| ""  "" continued as control   | 1deg_jra55_iaf_Control    | 1deg_jra55_iaf_branch2000_Control_PI_Offset/ |
-| Full interannual forcing      | 1deg_jra55_iaf_branch2000 | 1deg_jra55_iaf_branch2000_PI_Offset/         |
+| Description of simulation     | Model files*               | Input files                        | Storage files**                                  |
+| ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
+| Pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset   | e14/EXP_PI_Offset_JRA55-do-1-3     | 1deg_jra55_rdf_spinup_PI_Offset                  |
+| ""  "" continued with scaling | 1deg_jra55_iaf_PI_Offset   | e14/EXP_PI_Offset_JRA55-do-1-3     | 1deg_jra55_rdf_spinup_PI_Offset_for_Control      |
+| ""  "" continued as control   | 1deg_jra55_iaf_Control     | /g/data/qv56                       | 1deg_jra55_iaf_branch2000_Control_PI_Offset      |
+| Full interannual forcing      | 1deg_jra55_iaf_branch2000  | /g/data/qv56                       | 1deg_jra55_iaf_branch2000_PI_Offset              |
+| ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
+| Southern Ocean-only forcing   | 1deg_jra55_iaf_Southern    | e14/EXP_Southern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Southern_PI_Offset     |
+| North of 44°S forcing         | 1deg_jra55_iaf_Northern    | e14/EXP_Northern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Northern_PI_Offset     |
+| Tropics-only forcing          | 1deg_jra55_iaf_Tropics30SN | ik11/EXP_Tropics_30SN_JRA55-do-1-3 | 1deg_jra55_iaf_branch2000_Tropics30SN_PI_Offset  |
+| ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
+| Pacific Ocean-only forcing    | 1deg_jra55_iaf_Pacific     | ik11/EXP_Pacific_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Pacific_PI_Offset      |
+| Indian Ocean-only forcing     | 1deg_jra55_iaf_Indian      | ik11/EXP_Indian_JRA55-do-1-3       | 1deg_jra55_iaf_branch2000_Indian_PI_Offset       |
+| Atlantic Ocean-only forcing   | 1deg_jra55_iaf_Atlantic    | ik11/EXP_Atlantic_JRA55-do-1-3     | 1deg_jra55_iaf_branch2000_Atlantic_PI_Offset     |
+| ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
 ```
-
+* `/home/561/mv7494/`:
+** `/g/data/e14/mv7494`
 
 
 [Location of model runs](location_model_runs.png)
