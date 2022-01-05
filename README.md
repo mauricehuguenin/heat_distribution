@@ -19,7 +19,7 @@ I use the following main python packages which are publicly available online:
 
 # List of Figures
 __Fig. 1__: Recent global ocean heat content anomalies in observations and hindcast model simulations
-$\qquad$[Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
+$\qquad$ [Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb](Fig1_comparing_IAF_OHC_from_new_simulation_with_OBS.ipynb)
 
 __Fig. 2__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the simulation with full interannual forcing
 
