@@ -59,9 +59,6 @@ __Fig. 5__: Schematic summarising anomalous global ocean heat uptake and transpo
 | Atlantic Ocean-only forcing   | 1deg_jra55_iaf_Atlantic    | ik11/EXP_Atlantic_JRA55-do-1-3     | 1deg_jra55_iaf_branch2000_Atlantic_PI_Offset     |
 | ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
 ```
+\* `/home/561/mv7494/`
+\** `/g/data/e14/mv7494`
 
-- * `/home/561/mv7494/`
-- ** `/g/data/e14/mv7494`
-
-
-[Location of model runs](location_model_runs.png)
