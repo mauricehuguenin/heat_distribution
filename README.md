@@ -60,6 +60,7 @@ __Fig. E7__: Ocean heat content trends over 1992-2011 in the Tropics 30°S-30°N
 
 __Fig. E8__: Ocean heat content changes since 1972 in the basin-wide simulations.
 [Same script as for Fig. 4.](Fig4_time_series_and_histograms_perturbation_simulations.ipynb)
+
 __Fig. E9__: Spatial distribution of ocean heat uptake, transport, storage and SST trends over 1972--2017 in the Pacific, Indian and Atlantic Ocean-only simulations.
 [Same script as for Fig. E6.](FigE6_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
