@@ -73,6 +73,9 @@ __Fig. E9__: Spatial distribution of ocean heat uptake, transport, storage and S
 | ""  "" continued as control   | 1deg_jra55_iaf_Control     | /g/data/qv56                       | 1deg_jra55_iaf_branch2000_Control_PI_Offset      |
 | Full interannual forcing      | 1deg_jra55_iaf_branch2000  | /g/data/qv56                       | 1deg_jra55_iaf_branch2000_PI_Offset              |
 | ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
+| Wind-only forcing             | 1deg_jra55_iaf_Wind        | e14/EXP_Southern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Wind_PI_Offset         |
+| Buoyancy-only forcing         | 1deg_jra55_iaf_TempRad     | e14/EXP_Northern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_TempRad_PI_Offset      |
+| ----------------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------ |
 | Southern Ocean-only forcing   | 1deg_jra55_iaf_Southern    | e14/EXP_Southern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Southern_PI_Offset     |
 | North of 44°S forcing         | 1deg_jra55_iaf_Northern    | e14/EXP_Northern_JRA55-do-1-3      | 1deg_jra55_iaf_branch2000_Northern_PI_Offset     |
 | Tropics-only forcing          | 1deg_jra55_iaf_Tropics30SN | ik11/EXP_Tropics_30SN_JRA55-do-1-3 | 1deg_jra55_iaf_branch2000_Tropics30SN_PI_Offset  |
