@@ -70,7 +70,7 @@ __Fig. E9__: Spatial distribution of ocean heat uptake, transport, storage and S
 | ----------------------------- | -------------------------- | ----------------------------------- | ------------------------------------------------ |
 | Pre-industrial offset spin-up | 1deg_jra55_iaf_PI_Offset   | e14/EXP_PI_Offset_JRA55-do-1-3      | 1deg_jra55_rdf_spinup_PI_Offset                  |
 | ""  "" continued with scaling | 1deg_jra55_iaf_PI_Offset   | e14/EXP_PI_Offset_JRA55-do-1-3      | 1deg_jra55_rdf_spinup_PI_Offset_for_Control      |
-| ""  "" continued as control   | 1deg_jra55_iaf_Control     | /g/data/qv56                        | 1deg_jra55_iaf_branch2000_Control_PI_Offset      |
+| ""  "" continued as control   | 1deg_jra55_iaf_Control     | /g/data/qv56                        | 1deg_jra55_rdf_branch2000_Control_PI_Offset      |
 | Full interannual forcing      | 1deg_jra55_iaf_branch2000  | /g/data/qv56                        | 1deg_jra55_iaf_branch2000_PI_Offset              |
 | ----------------------------- | -------------------------- | ----------------------------------- | ------------------------------------------------ |
 | Wind-only forcing             | 1deg_jra55_iaf_Wind        | e14/EXP_Wind-Radiation_JRA55-do-1-3 | 1deg_jra55_iaf_branch2000_Wind_PI_Offset         |
