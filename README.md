@@ -53,10 +53,10 @@ __Fig. E5__: Spatial distribution of OHU, transport, storage and SST trends over
 [Same script as for Fig. 3.](Fig3_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. E6__: As in Fig. E5. but for the Southern Ocean-only experiment.
-[FigE6_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb](FigE6_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
+[FigE5_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb](FigE5_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. E7__: Ocean heat content trends over 1992-2011 in the Tropics 30°S-30°N experiment.
-[Same script as for Fig. E5.](FigE6_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
+[Same script as for Fig. E6.](FigE5_regional_spatial_maps_and_zonal_integral_of_accumulated_ocean_heat_content_and_net_sfc_heating_anomalies-PI_Offset.ipynb)
 
 __Fig. E8__: Ocean heat content changes since 1972 in the basin-wide simulations.
 [Same script as for Fig. 4.](Fig4_time_series_and_histograms_perturbation_simulations.ipynb)
