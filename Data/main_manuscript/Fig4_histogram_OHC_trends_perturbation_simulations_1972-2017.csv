@@ -1,0 +1,6 @@
+ "OHC (10^21 J year^-1)" "Full forcing simulation" Thermal-only Wind-only "Southern Ocean-only" Tropics30SN Pacific-only Indian-only Atlantic-only
+0 Global 5.476 3.17 2.158 5.795 0.39 1.07 0.517 -1.106
+1 Southern 2.518 1.339 1.071 1.739 0.099 0.169 0.15 -0.125
+2 Pacific 1.672 1.253 0.658 2.231 0.111 0.578 0.18 -0.229
+3 Indian 0.154 0.375 -0.062 0.52 -0.116 0.129 0.107 -0.336
+4 Atlantic 1.132 0.202 0.491 1.305 0.295 0.194 0.08 -0.416
