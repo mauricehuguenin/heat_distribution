@@ -1,0 +1,845 @@
+\documentclass{nature} 
+% hmaurice: remove all these packages below before submission ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\usepackage{ragged2e} % justify text 
+\justifying \usepackage{lineno} \linenumbers \usepackage{xcolor}
+\definecolor{lightblue}{RGB}{237,242,245} % introduce blue colour
+\newcommand{\Note}[1]{\colorbox{lightblue}{\textbf{\color[RGB]{49,54,149}{\fontfamily{phv}\selectfont{#1}}}}	}
+\usepackage{bm} % package for bold math symbols
+\usepackage{filecontents} % for including the .bib files directly in the .tex document
+\usepackage[rmargin=.65in,bmargin=1in,footskip=0.25in,lmargin=.65in,tmargin=1in]{geometry} % changing the margins
+\usepackage{amsmath} % AMS math package for equations & integrals
+\usepackage{setspace}\doublespacing % double spacing for normal text, single spacing for figure captions
+%\usepackage{graphicx} % to include the figures
+\usepackage{tcolorbox} % to create a frame around text
+\makeatletter % commands from here to include figures & captions in main text instead of only the captions at the end
+\let\saved@includegraphics\includegraphics\AtBeginDocument{\let\includegraphics\saved@includegraphics}
+\renewenvironment*{figure}{\@float{figure}}{\end@float} \makeatother
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ % %https://www.overleaf.com/project/60dabf4789bfa24b63883a56
+
+\begin{filecontents*}[overwrite]{database.bib}
+	@Article{schuckman2020heat,
+		AUTHOR = {von Schuckmann, K. and Cheng, L. and Palmer, M. D. and Hansen, J. and Tassone, C. and Aich, V. and Adusumilli, S. and Beltrami, H. and Boyer, T. and Cuesta-Valero, F. J. and Desbruy\`eres, D. and Domingues, C. and Garc\'{\i}a-Garc\'{\i}a, A. and Gentine, P. and Gilson, J. and Gorfer, M. and Haimberger, L. and Ishii, M. and Johnson, G. C. and Killick, R. and King, B. A. and Kirchengast, G. and Kolodziejczyk, N. and Lyman, J. and Marzeion, B. and Mayer, M. and Monier, M. and Monselesan, D. P. and Purkey, S. and Roemmich, D. and Schweiger, A. and Seneviratne, S. I. and Shepherd, A. and Slater, D. A. and Steiner, A. K. and Straneo, F. and Timmermans, M.-L. and Wijffels, S. E.},
+		TITLE = {{Heat stored in the Earth system: where does the energy go?}},
+		JOURNAL = {Earth System Science Data},
+		VOLUME = {12},
+		YEAR = {2020},
+		NUMBER = {3},
+		PAGES = {2013--2041},
+		DOI = {10.5194/essd-12-2013-2020}
+	}
+	@article{rhein2013ocean,
+		author = {Rhein, Monika and Rintoul, Stephen and Aoki, S. and Campos, Edmo and Chambers, D. and Feely, Richard and Wang, Fan},
+		year = {2013},
+		month = {01},
+		pages = {255-315},
+		title = {{Observations: Ocean. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change}},
+		journal = {Fifth Assessment Report of the Intergovernmental Panel on Climate Change}
+	}
+	@article{levitus2012global,
+		author = {Levitus, S. and Antonov, J. I. and Boyer, T. P. and Baranova, O. K. and Garcia, H. E. and Locarnini, R. A. and Mishonov, A. V. and Reagan, J. R. and Seidov, D. and Yarosh, E. S. and Zweng, M. M.},
+		title = {{World ocean heat content and thermosteric sea level change (0–2000 m), 1955–2010}},
+		journal = {Geophysical Research Letters},
+		volume = {39},
+		number = {10},
+		pages = {},
+		keywords = {climate variability, ocean heat content},
+		doi = {10.1029/2012GL051106},
+		year = {2012}
+	}
+	@incollection{IPCCAR5SPM,
+		title={{Summary for Policymakers}},
+		author={IPCC},
+		booktitle={{Climate  Change  2013:  The  Physical  Science  Basis Contribution  of  Working  Group  I  to  the  Fifth  Assessment  Report  of  the  Intergovernmental  Panel  on  Climate  Change  [Stocker,  T.F.,  D.  Qin,  G.-K.  Plattner,  M.  Tignor,  S.K.  Allen,  J.  Boschung,  A.  Nauels,  Y.  Xia,  V.  Bex  and  P.M.  Midgley  (eds.)]}},
+		year={2013},
+		publisher={Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA}
+	}
+	@ARTICLE{meyssignac2019estimate,
+		AUTHOR={Meyssignac, Benoit and Boyer, Tim and Zhao, Zhongxiang and Hakuba, Maria Z. and Landerer, Felix W. and Stammer, Detlef and Köhl, Armin and Kato, Seiji and L’Ecuyer, Tristan and Ablain, Michael and Abraham, John Patrick and Blazquez, Alejandro and Cazenave, Anny and Church, John A. and Cowley, Rebecca and Cheng, Lijing and Domingues, Catia M. and Giglio, Donata and Gouretski, Viktor and Ishii, Masayoshi and Johnson, Gregory C. and Killick, Rachel E. and Legler, David and Llovel, William and Lyman, John and Palmer, Matthew Dudley and Piotrowicz, Steve and Purkey, Sarah G. and Roemmich, Dean and Roca, Rémy and Savita, Abhishek and Schuckmann, Karina von and Speich, Sabrina and Stephens, Graeme and Wang, Gongjie and Wijffels, Susan Elisabeth and Zilberman, Nathalie},   
+		TITLE={{Measuring Global Ocean Heat Content to Estimate the Earth Energy Imbalance}},      
+		JOURNAL={Frontiers in Marine Science},      
+		VOLUME={6},     
+		PAGES={432},     
+		YEAR={2019},     
+		DOI={10.3389/fmars.2019.00432}     
+	}
+	@incollection{IPCC2019SROC,
+		title={{Summary for Policymakers}},
+		author={IPCC},
+		booktitle={{IPCC Special Report on the Ocean and Cryosphere in a Changing Climate [H.-O. Pörtner, D.C.Roberts, V. Masson-Delmotte, P. Zhai, M. Tignor, E. Poloczanska, K. Mintenbeck, M. Nicolai, A. Okem, J. Petzold, B. Rama, N. Weyer (eds.)]}},
+		year={2019},
+		publisher={In press.}
+	}
+	@article{durack2014quantifying,
+		author = {Durack, Paul J. and Gleckler, Peter J. and Landerer, Felix W. and Taylor, Karl E.},
+		doi = {10.1038/nclimate2389},
+		issn = {17586798},
+		journal = {Nature Climate Change},
+		number = {11},
+		pages = {999--1005},
+		title = {{Quantifying underestimates of long-term upper-ocean warming}},
+		volume = {4},
+		year = {2014}
+	}
+	@misc{Argo2000float,
+		type = "Dataset",
+		year = "2021",
+		title = {{Argo float data and metadata from Global Data Assembly Centre (Argo GDAC)}},
+		journal = "",
+		editor = "",
+		volume = "",
+		number = "",
+		pages = "",
+		author = "Argo",
+		organization = "",
+		address = "",
+		doi = "https://doi.org/10.17882/42182",
+		key = ""
+	}
+	@article{abraham2013xbt,
+		author = {Abraham, J. P. and Baringer, M. and Bindoff, N. L. and Boyer, T. and Cheng, L. J. and Church, J. A. and Conroy, J. L. and Domingues, C. M. and Fasullo, J. T. and Gilson, J. and Goni, G. and Good, S. A. and Gorman, J. M. and Gouretski, V. and Ishii, M. and Johnson, G. C. and Kizu, S. and Lyman, J. M. and Macdonald, A. M. and Minkowycz, W. J. and Moffitt, S. E. and Palmer, M. D. and Piola, A. R. and Reseghetti, F. and Schuckmann, K. and Trenberth, K. E. and Velicogna, I. and Willis, J. K.},
+		title = {{A review of global ocean temperature observations: Implications for ocean heat content estimates and climate change}},
+		journal = {Reviews of Geophysics},
+		volume = {51},
+		number = {3},
+		pages = {450-483},
+		keywords = {global warming, ocean heat content, Argo float, thermosteric sea level rise, expendable bathythermograph, Earth energy balance},
+		doi = {https://doi.org/10.1002/rog.20022},
+		year = {2013}
+	}
+	@article{purkey2010abyssal,
+		author = "Sarah G. Purkey and Gregory C. Johnson",
+		title = {{Warming of Global Abyssal and Deep Southern Ocean Waters between the 1990s and 2000s: Contributions to Global Heat and Sea Level Rise Budgets}},
+		journal = "Journal of Climate",
+		publisher = "American Meteorological Society",
+		address = "Boston MA, USA",
+		volume = "23",
+		number = "23",
+		doi = "10.1175/2010JCLI3682.1",
+		pages=      "6336 - 6351",
+		year= "2010"
+	}
+	@article{desbruyeres2016abyssal,
+		author = {Desbruyères, Damien G. and Purkey, Sarah G. and McDonagh, Elaine L. and Johnson, Gregory C. and King, Brian A.},
+		title = {{Deep and abyssal ocean warming from 35 years of repeat hydrography}},
+		journal = {Geophysical Research Letters},
+		volume = {43},
+		number = {19},
+		pages = {10,356-10,365},
+		keywords = {repeat hydrography, ocean heat content, GO-SHIP},
+		doi = {https://doi.org/10.1002/2016GL070413},
+		year = {2016}
+	}
+	@article{roemmich2015planetary,
+		author = {Roemmich, Dean and Church, John and Gilson, John and Monselesan, Didier and Sutton, Philip and Wijffels, Susan},
+		doi = {10.1038/nclimate2513},
+		issn = {1758-6798},
+		journal = {Nature Climate Change},
+		number = {3},
+		pages = {240--245},
+		title = {{Unabated planetary warming and its ocean structure since 2006}},
+		volume = {5},
+		year = {2015}
+	}
+	@article{shi2021SOwarmingzonal,
+		author = {Shi, Jia-Rui and Talley, Lynne D and Xie, Shang-Ping and Peng, Qihua and Liu, Wei},
+		doi = {10.1038/s41558-021-01212-5},
+		issn = {1758-6798},
+		journal = {Nature Climate Change},
+		number = {12},
+		pages = {1090--1097},
+		title = {{Ocean warming and accelerating Southern Ocean zonal flow}},
+		volume = {11},
+		year = {2021}
+	}
+	@Article{eyring2016cmip6,
+		AUTHOR = {Eyring, V. and Bony, S. and Meehl, G. A. and Senior, C. A. and Stevens, B. and Stouffer, R. J. and Taylor, K. E.},
+		TITLE = {{Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization}},
+		JOURNAL = {Geoscientific Model Development},
+		VOLUME = {9},
+		YEAR = {2016},
+		NUMBER = {5},
+		PAGES = {1937--1958},
+		DOI = {10.5194/gmd-9-1937-2016}
+	}
+	@Article{gregory2016FAFMIP,
+		AUTHOR = {Gregory, J. M. and Bouttes, N. and Griffies, S. M. and Haak, H. and Hurlin, W. J. and Jungclaus, J. and Kelley, M. and Lee, W. G. and Marshall, J. and Romanou, A. and Saenko, O. A. and Stammer, D. and Winton, M.},
+		TITLE = {{The Flux-Anomaly-Forced Model Intercomparison Project (FAFMIP) contribution to CMIP6: investigation of sea-level and ocean climate change in response to CO$_{2}$ forcing}},
+		JOURNAL = {Geoscientific Model Development},
+		VOLUME = {9},
+		YEAR = {2016},
+		NUMBER = {11},
+		PAGES = {3993--4017},
+		DOI = {10.5194/gmd-9-3993-2016}
+	}
+	@article{dias2020heatstorage,
+		author = "Fabio Boeira Dias and R. Fiedler and S. J. Marsland and C. M. Domingues and L. Clément and S. R. Rintoul and E. L. Mcdonagh and M. M. Mata and A. Savita",
+		title = {{Ocean Heat Storage in Response to Changing Ocean Circulation Processes}},
+		journal = "Journal of Climate",
+		year = "2020",
+		publisher = "American Meteorological Society",
+		address = "Boston MA, USA",
+		volume = "33",
+		number = "21",
+		doi = "https://doi.org/10.1175/JCLI-D-19-1016.1",
+		pages=      "9065 - 9082",
+	}
+	@article{frolicher2015dominance,
+		author = {Fr\"olicher, Thomas L. and Sarmiento, Jorge L. and Paynter, David J. and Dunne, John P. and Krasting, John P. and Winton, Michael},
+		title = {{Dominance of the Southern Ocean in Anthropogenic Carbon and Heat Uptake in CMIP5 Models}},
+		journal = {Journal of Climate},
+		volume = {28},
+		number = {2},
+		pages = {862-886},
+		year = {2015},
+		doi = {10.1175/JCLI-D-14-00117.1}
+	}
+	@Article{tsujino2020omip,
+		AUTHOR = {Tsujino, H. and Urakawa, L. S. and Griffies, S. M. and Danabasoglu, G. and Adcroft, A. J. and Amaral, A. E. and Arsouze, T. and Bentsen, M. and Bernardello, R. and B\"oning, C. W. and Bozec, A. and Chassignet, E. P. and Danilov, S. and Dussin, R. and Exarchou, E. and Fogli, P. G. and Fox-Kemper, B. and Guo, C. and Ilicak, M. and Iovino, D. and Kim, W. M. and Koldunov, N. and Lapin, V. and Li, Y. and Lin, P. and Lindsay, K. and Liu, H. and Long, M. C. and Komuro, Y. and Marsland, S. J. and Masina, S. and Nummelin, A. and Rieck, J. K. and Ruprich-Robert, Y. and Scheinert, M. and Sicardi, V. and Sidorenko, D. and Suzuki, T. and Tatebe, H. and Wang, Q. and Yeager, S. G. and Yu, Z.},
+		TITLE = {{Evaluation of global ocean--sea-ice model simulations based on the
+				experimental protocols of the Ocean Model Intercomparison Project phase 2
+				(OMIP-2)}},
+		JOURNAL = {Geoscientific Model Development},
+		VOLUME = {13},
+		YEAR = {2020},
+		NUMBER = {8},
+		PAGES = {3643--3708},
+		DOI = {10.5194/gmd-13-3643-2020}
+	}
+	@article{tsujino2018jra,
+		title={{JRA-55 based surface dataset for driving ocean--sea-ice models (JRA55-do)}},
+		author={Tsujino, Hiroyuki and Urakawa, Shogo and Nakano, Hideyuki and Small, R Justin and Kim, Who M and Yeager, Stephen G and Danabasoglu, Gokhan and Suzuki, Tatsuo and Bamber, Jonathan L and Bentsen, Mats and others},
+		journal={Ocean Modelling},
+		volume={130},
+		pages={79--139},
+		year={2018},
+		DOI = {10.1016/j.ocemod.2018.07.002},
+		publisher={Elsevier}
+	}
+	@Article{kiss2020access,
+		AUTHOR = {Kiss, A. E. and Hogg, A. McC. and Hannah, N. and Boeira Dias, F. and Brassington, G. B. and Chamberlain, M. A. and Chapman, C. and Dobrohotoff, P. and Domingues, C. M. and Duran, E. R. and England, M. H. and Fiedler, R. and Griffies, S. M. and Heerdegen, A. and Heil, P. and Holmes, R. M. and Klocker, A. and Marsland, S. J. and Morrison, A. K. and Munroe, J. and Oke, P. R. and Nikurashin, M. and Pilo, G. S. and Richet, O. and Savita, A. and Spence, P. and Stewart, K. D. and Ward, M. L. and Wu, F. and Zhang, X.},
+		TITLE = {{ACCESS-OM2: A Global Ocean-Sea Ice Model at Three Resolutions}},
+		JOURNAL = {Geoscientific Model Development Discussions},
+		YEAR = {2020},
+		PAGES = {1--58},
+		DOI = {10.5194/gmd-13-401-2020}
+	}
+	@article{argo2017gridded,
+		author = {Li, Hong and Xu, Fanghua and Zhou, Wei and Wang, Dongxiao and Wright, Jonathon S. and Liu, Zenghong and Lin, Yanluan},
+		title = {{Development of a global gridded Argo data set with Barnes successive corrections}},
+		journal = {Journal of Geophysical Research: Oceans},
+		volume = {122},
+		number = {2},
+		pages = {866-889},
+		keywords = {Argo, refined Barnes successive corrections, BOA-Argo},
+		doi = {https://doi.org/10.1002/2016JC012285},
+		year = {2017}
+	}
+	@article{rathore2020asymmetry,
+		author = {Rathore, Saurabh and Bindoff, Nathaniel L and Phillips, Helen E and Feng, Ming},
+		doi = {10.1038/s41467-020-15754-3},
+		issn = {2041-1723},
+		journal = {Nature Communications},
+		number = {1},
+		pages = {2008},
+		title = {{Recent hemispheric asymmetry in global ocean warming induced by climate change and internal variability}},
+		volume = {11},
+		year = {2020}
+	}
+	@article{irving2019anthropogenic,
+		author = {Irving, D. B. and Wijffels, S. and Church, J. A.},
+		title = {{Anthropogenic Aerosols, Greenhouse Gases, and the Uptake, Transport, and Storage of Excess Heat in the Climate System}},
+		journal = {Geophysical Research Letters},
+		volume = {46},
+		number = {9},
+		pages = {4894-4903},
+		doi = {10.1029/2019GL082015},
+		year = {2019}
+	}
+	@article{Wijffels2016temperature,
+		author = {Wijffels, Susan and Roemmich, Dean and Monselesan, Didier and Church, John and Gilson, John},
+		doi = {10.1038/nclimate2924},
+		issn = {17586798},
+		journal = {Nature Climate Change},
+		number = {2},
+		pages = {116--118},
+		title = {{Ocean temperatures chronicle the ongoing warming of Earth}},
+		volume = {6},
+		year = {2016}
+	}
+	@article{armour2016southern,
+		author = {Armour, Kyle C. and Marshall, John and Scott, Jeffery R. and Donohoe, Aaron and Newsom, Emily R.},
+		issn = {17520908},
+		journal = {Nature Geoscience},
+		number = {7},
+		pages = {549--554},
+		title = {{Southern Ocean warming delayed by circumpolar upwelling and equatorward transport}},
+		doi = {https://doi.org/10.1038/ngeo2731},
+		volume = {9},
+		year = {2016}
+	}
+	@article{marshall2015transient,
+		author = {Marshall, John and Scott, Jeffery R. and Armour, Kyle C. and Campin, J. M. and Kelley, Maxwell and Romanou, Anastasia},
+		doi = {10.1007/s00382-014-2308-0},
+		issn = {14320894},
+		journal = {Climate Dynamics},
+		keywords = {Antarctic,Arctic,Climate change,Climate feedbacks,Greenhouse gas warming,Ocean},
+		number = {7-8},
+		pages = {2287--2299},
+		title = {{The ocean's role in the transient response of climate to abrupt greenhouse gas forcing}},
+		volume = {44},
+		year = {2015}
+	}
+	@article{morrison2016southern,
+		author = {Adele K. Morrison and Stephen M. Griffies and Michael Winton and Whit G. Anderson and Jorge L. Sarmiento},
+		title = {{Mechanisms of Southern Ocean Heat Uptake and Transport in a Global Eddying Climate Model}},
+		journal = {Journal of Climate},
+		year = {2016},
+		publisher = {American Meteorological Society},
+		volume = {29},
+		number = {6},
+		doi = {https://doi.org/10.1175/JCLI-D-15-0579.1},
+		pages=      {2059 - 2075},
+	}
+	@article{mccarthy2015AMOC,
+		title = {{Measuring the Atlantic Meridional Overturning Circulation at 26°N}},
+		journal = {Progress in Oceanography},
+		volume = {130},
+		pages = {91-111},
+		year = {2015},
+		issn = {0079-6611},
+		doi = {https://doi.org/10.1016/j.pocean.2014.10.006},
+		author = {G.D. McCarthy and D.A. Smeed and W.E. Johns and E. Frajka-Williams and B.I. Moat and D. Rayner and M.O. Baringer and C.S. Meinen and J. Collins and H.L. Bryden},
+	}
+	@incollection{godfrey2001tropical,
+		title = {{Chapter 4.3 The tropical ocean circulation}},
+		editor = {Gerold Siedler and John Church and John Gould},
+		series = {International Geophysics},
+		publisher = {Academic Press},
+		volume = {77},
+		pages = {215-246},
+		year = {2001},
+		booktitle = {Ocean Circulation and Climate},
+		issn = {0074-6142},
+		doi = {10.1016/S0074-6142(01)80121-2},
+		author = {J.S. Godfrey and G. C.Johnson and M.J. McPhaden and G. Reverdin and Susan E. Wijffels},
+	}
+	@inbook{talley2011descriptive,
+		author       = {Talley, Lynne D. and Pickard, George L. and Emery, William J. and Swift, James H.}, 
+		title        = {{Descriptive Physical Oceanography - An Introduction}},
+		chapter      = 10,
+		pages        = {303-362},
+		publisher    = {ELSEVIER},
+		year         = 2011,
+		address      = {32 Jamestown Road, London NW1 7BY, UK},
+		edition      = 6,
+		month        = 7
+	}
+	@article{todd2020oceanFAFMIP,
+		author = {Todd, Alexander and Zanna, Laure and Couldrey, Matthew and Gregory, Jonathan and Wu, Quran and Church, John A. and Farneti, Riccardo and Navarro-Labastida, René and Lyu, Kewei and Saenko, Oleg and Yang, Duo and Zhang, Xuebin},
+		title = {{Ocean-Only FAFMIP: Understanding Regional Patterns of Ocean Heat Content and Dynamic Sea Level Change}},
+		journal = {Journal of Advances in Modeling Earth Systems},
+		volume = {12},
+		number = {8},
+		pages = {e2019MS002027},
+		keywords = {Dynamic Sea Level, Ocean Heat Uptake, Ocean Climate Change},
+		doi = {https://doi.org/10.1029/2019MS002027},
+		year = {2020}
+	}
+	@article{wendler1997radbudget_sice, 
+		title={{On the surface energy budget of sea ice}}, 
+		volume={43}, 
+		DOI={10.3189/S0022143000002884}, 
+		number={143}, journal={Journal of Glaciology}, publisher={Cambridge University Press}, author={Wendler, Gerd and Adolphs, Ute and Hauser, Adrian and Moore, Blake}, year={1997}, pages={122–130}
+	}
+	@article{liu2018southern,
+		author = {Liu, Wei and Lu, Jian and Xie, Shang-Ping and Fedorov, Alexey},
+		title = {{Southern Ocean Heat Uptake, Redistribution, and Storage in a Warming Climate: The Role of Meridional Overturning Circulation}},
+		journal = {Journal of Climate},
+		volume = {31},
+		number = {12},
+		pages = {4727-4743},
+		year = {2018},
+		doi = {10.1175/JCLI-D-17-0761.1}
+	}
+	@article{england2014recent,
+		title={{Recent intensification of wind-driven circulation in the Pacific and the ongoing warming hiatus}},
+		author={England, Matthew H and McGregor, Shayne and Spence, Paul and Meehl, Gerald A and Timmermann, Axel and Cai, Wenju and Gupta, Alex Sen and McPhaden, Michael J and Purich, Ariaan and Santoso, Agus},
+		journal={Nature Climate Change},
+		doi={10.1038/NCLIMATE2106},
+		volume={4},
+		number={3},
+		pages={222--227},
+		year={2014},
+		publisher={Nature Publishing Group}
+	}
+	@article{henley2017IPO,
+		author = {Henley, Benjamin J. and King, Andrew D.},
+		title = {{Trajectories toward the 1.5$^{\circ}$C Paris target: Modulation by the Interdecadal Pacific Oscillation}},
+		journal = {Geophysical Research Letters},
+		volume = {44},
+		number = {9},
+		pages = {4256-4262},
+		keywords = {global temperature, Paris target, 1.5°C, IPO, PDO, climate change},
+		doi = {https://doi.org/10.1002/2017GL073480},
+		year = {2017}
+	}
+	@article{Lee2015hiatus,
+		author = {Lee, Sang Ki and Park, Wonsun and Baringer, Molly O. and Gordon, Arnold L. and Huber, Bruce and Liu, Yanyun},
+		doi = {10.1038/NGEO2438},
+		issn = {17520908},
+		journal = {Nature Geoscience},
+		number = {6},
+		pages = {445--449},
+		title = {{Pacific origin of the abrupt increase in Indian Ocean heat content during the warming hiatus}},
+		volume = {8},
+		year = {2015}
+	}
+	@article{maher2017role,
+		title={{Role of Pacific trade winds in driving ocean temperatures during the recent slowdown and projections under a wind trend reversal}},
+		author={Maher, Nicola and England, Matthew H and Gupta, Alex Sen and Spence, Paul},
+		journal={Climate Dynamics},
+		pages={1--16},
+		year={2017},
+		doi={10.1007/s00382-017-3923-3},
+		publisher={Springer}
+	}
+	@article{meehl2016prediction,
+		author = {Meehl, Gerald A. and Hu, Aixue and Teng, Haiyan},
+		doi = {10.1038/ncomms11718},
+		issn = {20411723},
+		journal = {Nature Communications},
+		number = {1},
+		pages = {11718},
+		title = {{Initialized decadal prediction for transition to positive phase of the Interdecadal Pacific Oscillation}},
+		volume = {7},
+		year = {2016}
+	}
+	@article{Meehl2011deepOHU,
+		author = {Meehl, Gerald A. and Arblaster, Julie M. and Fasullo, John T. and Hu, Aixue and Trenberth, Kevin E.},
+		doi = {10.1038/nclimate1229},
+		issn = {1758678X},
+		journal = {Nature Climate Change},
+		number = {7},
+		pages = {360--364},
+		title = {{Model-based evidence of deep-ocean heat uptake during surface-temperature hiatus periods}},
+		volume = {1},
+		year = {2011}
+	}
+	@article{liu2020AMOC,
+		author = {Liu, Wei and Fedorov, Alexey V. and Xie, Shang Ping and Hu, Shineng},
+		doi = {10.1126/sciadv.aaz4876},
+		issn = {23752548},
+		journal = {Science Advances},
+		number = {26},
+		pages = {1--8},
+		pmid = {32637596},
+		title = {{Climate impacts of a weakened Atlantic meridional overturning circulation in a warming climate}},
+		volume = {6},
+		year = {2020}
+	}
+	@article{Couldrey2021SLChange,
+		author = {Couldrey, Matthew P. and Gregory, Jonathan M. and {Boeira Dias}, Fabio and Dobrohotoff, Peter and Domingues, Catia M. and Garuba, Oluwayemi and Griffies, Stephen M. and Haak, Helmuth and Hu, Aixue and Ishii, Masayoshi and Jungclaus, Johann and K{\"{o}}hl, Armin and Marsland, Simon J. and Ojha, Sayantani and Saenko, Oleg A. and Savita, Abhishek and Shao, Andrew and Stammer, Detlef and Suzuki, Tatsuo and Todd, Alexander and Zanna, Laure},
+		doi = {10.1007/s00382-020-05471-4},
+		issn = {14320894},
+		journal = {Climate Dynamics},
+		number = {1-2},
+		pages = {155--187},
+		title = {{What causes the spread of model projections of ocean dynamic sea-level change in response to greenhouse gas forcing?}},
+		volume = {56},
+		year = {2021}
+	}
+	@article{grist2018atlantic_heat,
+		author = {Grist, Jeremy P. and Josey, Simon A. and New, Adrian L. and Roberts, Malcolm and Koenigk, Torben and Iovino, Doroteaciro},
+		title = {{Increasing Atlantic Ocean Heat Transport in the Latest Generation Coupled Ocean-Atmosphere Models: The Role of Air-Sea Interaction}},
+		journal = {Journal of Geophysical Research: Oceans},
+		volume = {123},
+		number = {11},
+		pages = {8624-8637},
+		keywords = {ocean heat transport, surface fluxes, Atlantic ocean, climate models, model resolution},
+		doi = {https://doi.org/10.1029/2018JC014387},
+		year = {2018}
+	}
+	@article{griffies2012elements,
+		title={{Elements of the modular ocean model (MOM)}},
+		author={Griffies, Stephen M},
+		journal={GFDL Ocean Group Tech. Rep},
+		volume={7},
+		pages={620},
+		year={2012}
+	}
+	@article{hunke2015cice,
+		title={{CICE: the Los Alamos sea ice model, documentation and software, version 5.1 (Tech. Rep. LA-CC-06-012)}},
+		author={Hunke, EC and Lipscomb, WH and Turner, AK},
+		year={2015},
+		journal={Los Alamos National Laboratory}
+	}
+	@Article{craig2017oasis-mct,
+		AUTHOR = {Craig, A. and Valcke, S. and Coquart, L.},
+		TITLE = {{Development and performance of a new version of the OASIS coupler,
+				OASIS3-MCT\_3.0}},
+		JOURNAL = {Geoscientific Model Development},
+		VOLUME = {10},
+		YEAR = {2017},
+		NUMBER = {9},
+		PAGES = {3297--3308},
+		DOI = {10.5194/gmd-10-3297-2017}
+	}
+	@article{fairall1996bulk,
+		title={{Bulk parameterization of air-sea fluxes for tropical ocean-global atmosphere coupled-ocean atmosphere response experiment}},
+		author={Fairall, Chris W and Bradley, Edward F and Rogers, David P and Edson, James Bearer and Young, George S},
+		journal={Journal of Geophysical Research: Oceans},
+		volume={101},
+		doi={10.1029/95JC03205},
+		number={C2},
+		pages={3747--3764},
+		year={1996},
+		publisher={Wiley Online Library}
+	}
+	@incollection{locarnini2013world,
+		title={{World Ocean Atlas 2013, Volume 1: Temperature}},
+		booktitle={NOAA Atlas NESDIS 73:40},
+		author={Locarnini, Ricardo A and Mishonov, Alexey V and Antonov, John I and Boyer, Timothy P and Garcia, Hernan E and Baranova, Olga K and Zweng, Melissa M and Paver, Christopher R and Reagan, James R and Johnson, Daphne R and others},
+		year={2013},
+		pages={40 pp},
+		editor={Levitus S},
+		publisher={US Government Printing Office, Washington D.C.},
+	}
+	@article{huang2015extended,
+		title={{Extended reconstructed sea surface temperature version 4 (ERSST. v4). Part I: upgrades and intercomparisons}},
+		author={Huang, Boyin and Banzon, Viva F and Freeman, Eric and Lawrimore, Jay and Liu, Wei and Peterson, Thomas C and Smith, Thomas M and Thorne, Peter W and Woodruff, Scott D and Zhang, Huai-Min},
+		journal={Journal of climate},
+		volume={28},
+		number={3},
+		doi={10.1175/JCLI-D-14-00006.1},
+		pages={911--930},
+		year={2015}
+	}
+	@article{power1999interdecadal,
+		author = {Power, S. and Casey, T. and Folland, C. and Colman, A. and Mehta, V.},
+		doi = {10.1007/s003820050284},
+		issn = {09307575},
+		journal = {Climate Dynamics},
+		number = {5},
+		pages = {319--324},
+		title = {{Inter-decadal modulation of the impact of ENSO on Australia}},
+		volume = {15},
+		year = {1999}
+	}
+	@article{saji1999IOD,
+		author = {Saji, N. H. and Goswami, B. N. and Vinayachandran, P. N. and Yamagata, T.},
+		doi = {10.1038/43854},
+		issn = {00280836},
+		journal = {Nature},
+		number = {6751},
+		pages = {360--363},
+		pmid = {16862108},
+		title = {{A dipole mode in the tropical Indian Ocean}},
+		volume = {401},
+		year = {1999}
+	}
+	@article{morice2021hadcrut_updated,
+		author = {Morice, C. P. and Kennedy, J. J. and Rayner, N. A. and Winn, J. P. and Hogan, E. and Killick, R. E. and Dunn, R. J. H. and Osborn, T. J. and Jones, P. D. and Simpson, I. R.},
+		title = {{An Updated Assessment of Near-Surface Temperature Change From 1850: The HadCRUT5 Data Set}},
+		journal = {Journal of Geophysical Research: Atmospheres},
+		volume = {126},
+		number = {3},
+		pages = {e2019JD032361},
+		doi = {https://doi.org/10.1029/2019JD032361},
+		year = {2021}
+	}
+	@article{stewart2019southern,
+		title = {{Southern Ocean heat and momentum uptake are sensitive to the vertical resolution at the ocean surface}},
+		journal = {Ocean Modelling},
+		volume = {143},
+		pages = {101456},
+		year = {2019},
+		issn = {1463-5003},
+		doi = {https://doi.org/10.1016/j.ocemod.2019.101456},
+		author = {K.D. Stewart and A.McC. Hogg},
+		keywords = {{Southern Ocean heat uptake, Wind stress curl, Ekman/wind-driven upwelling/downwelling, Vertical/horizontal resolution},
+	}}
+	@article {Winton2013connecting,
+		author = "Michael Winton and Stephen M. Griffies and Bonita L. Samuels and Jorge L. Sarmiento and Thomas L. Frölicher",
+		title = "Connecting Changing Ocean Circulation with Changing Climate",
+		journal = "Journal of Climate",
+		year = "2013",
+		publisher = "American Meteorological Society",
+		address = "Boston MA, USA",
+		volume = "26",
+		number = "7",
+		doi = "10.1175/JCLI-D-12-00296.1",
+		pages=      "2268 - 2278",
+	}
+	@Article{McDougall2003enthalpy,
+		author    = {McDougall, Trevor J.},
+		title     = {Potential Enthalpy: A Conservative Oceanic Variable for Evaluating Heat Content and Heat Fluxes},
+		journal   = {J. Phys. Oceanogr.},
+		year      = {2003},
+		volume    = {33},
+		number    = {5},
+		pages     = {945-963},
+		doi       = {10.1175/1520-0485(2003)033<0945:PEACOV>2.0.CO;2},
+		file      = {:2002McDougallJPO.pdf:PDF},
+		timestamp = {2018.08.28},
+	}
+	@Article{TEOS10,
+		author  = {McDougall, Trevor J and Barker, Paul M},
+		title   = {Getting started with {TEOS-10} and the {Gibbs Seawater (GSW)} oceanographic toolbox},
+		journal = {SCOR/IAPSO WG},
+		year    = {2011},
+		volume  = {127},
+		pages   = {1--28},
+	}
+	@article{holmes2019atlantic,
+		author = {Holmes, Ryan M. and Zika, Jan D. and Ferrari, Raffaele and Thompson, Andrew F. and Newsom, Emily R. and England, Matthew H.},
+		title = {{Atlantic Ocean Heat Transport Enabled by Indo-Pacific Heat Uptake and Mixing}},
+		journal = {Geophysical Research Letters},
+		volume = {46},
+		number = {23},
+		pages = {13939-13949},
+		doi = {10.1029/2019GL085160},
+		year = {2019}
+	}
+	@article{forget2019OHT,
+		author = {Forget, Ga{\"{e}}l and Ferreira, David},
+		doi = {10.1038/s41561-019-0333-7},
+		issn = {1752-0908},
+		journal = {Nature Geoscience},
+		number = {5},
+		pages = {351--354},
+		title = {{Global ocean heat transport dominated by heat export from the tropical Pacific}},
+		volume = {12},
+		year = {2019}
+	}
+	@article {irving2021drift,
+		author = "Damien Irving and Will Hobbs and John Church and Jan Zika",
+		title = {{A Mass and Energy Conservation Analysis of Drift in the CMIP6 Ensemble}},
+		journal = "Journal of Climate",
+		year = "2021",
+		publisher = "American Meteorological Society",
+		address = "Boston MA, USA",
+		volume = "34",
+		number = "8",
+		doi = "10.1175/JCLI-D-20-0281.1",
+		pages=      "3157 - 3170",
+	}
+	@software{huguenin2022ohcscripts,
+		author       = {Maurice F. Huguenin and Ryan M. Holmes and Matthew H. England},
+		title        = {{Data and analysis scripts for: Drivers and distribution of global ocean heat content over the last half century}},
+		month        = jul,
+		year         = 2022,
+		publisher    = {Zenodo},
+		version      = 20220718,
+		doi          = {10.5281/zenodo.6825334},
+		url          = {https://doi.org/10.5281/zenodo.6825334}
+	}
+	@article{cheng2019evolution,
+		author = {Cheng, Lijing and Trenberth, Kevin E. and Fasullo, John T. and Mayer, Michael and Balmaseda, Magdalena and Zhu, Jiang},
+		title = {{Evolution of Ocean Heat Content Related to ENSO}},
+		journal = {Journal of Climate},
+		volume = {32},
+		number = {12},
+		pages = {3529-3556},
+		year = {2019},
+		doi = {10.1175/JCLI-D-18-0607.1},	
+	}
+\end{filecontents*} % end of reference list
+\title{Drivers and distribution of global ocean heat uptake over the last half century}
+\author{Maurice F. Huguenin$^{1,2,3,*}$, Ryan M. Holmes$^{1,2,4,5}$ \& Matthew H. England$^{1,3}$}
+\begin{document}\maketitle
+	\begin{affiliations}
+		\item Climate Change Research Centre, University of New South Wales, Sydney, New South Wales, Australia
+		\item ARC Centre of Excellence in Climate Extremes, University of New South Wales, Sydney, New South Wales, Australia
+		\item ARC Australian Centre for Excellence in Antarctic Science, University of New South Wales, Sydney, New South Wales, Australia
+		\item School of Mathematics and Statistics, University of New South Wales, Sydney, New South Wales, Australia
+		\item School of Geosciences, University of Sydney, Sydney, New South Wales, Australia
+		\item[*] E-mail: m.huguenin-virchaux@unsw.edu.au
+	\end{affiliations}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{abstract}
+		Since the 1970s, the ocean has absorbed almost all of the additional energy in the Earth system due to greenhouse warming. However, sparse observations limit our knowledge of where ocean heat uptake (OHU) has occurred and where this heat is stored today. Here, we equilibrate a reanalysis-forced ocean-sea ice model using a spin-up that improves on earlier approaches to investigate recent OHU trends basin-by-basin and associated separately with surface wind trends, thermodynamic properties (temperature, humidity and radiation) or both. Wind and thermodynamic changes each explain $\sim$50\% of global OHU, while Southern Ocean forcing trends can account for almost all of the global OHU. This OHU is enabled by cool sea surface temperatures and sensible heat gain when atmospheric thermodynamic properties are held fixed, while downward longwave radiation dominates when winds are fixed. These results address long-standing limitations in multidecadal ocean-sea ice model simulations to reconcile estimates of OHU, transport and storage.
+	\end{abstract}\pagebreak
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	The ocean plays a critical role in modulating the Earth's climate system and over the last 50 years it has taken up over 89\% of the excess energy due to greenhouse warming\cite{schuckman2020heat,rhein2013ocean,levitus2012global,IPCCAR5SPM,meyssignac2019estimate}. Since the early 1990s, the rate of ocean warming has likely doubled\cite{IPCC2019SROC}. However, our current understanding of the spatial distribution of ocean heat uptake (OHU) and storage is limited, not least because of sparse observations with large uncertainties, especially in sea-ice covered regions\cite{durack2014quantifying} and the deep ocean\cite{levitus2012global}. For example, reliable observations of ocean heat content (OHC) in the upper 2000 m only start in 2005 with the Argo program that covers 60$^{\circ}$S--60$^{\circ}$N\cite{argo2000float}. Before 2005, good observations are only available in the upper 700 m from expendable bathythermographs\cite{abraham2013xbt} and from a few select deep ocean cruise ship measurements\cite{purkey2010abyssal,desbruyeres2016abyssal}. Observation-based studies therefore focus mainly on trends over much shorter time periods (e.g., since 2005\cite{roemmich2015planetary} or since the early 1990s\cite{shi2021SOwarmingzonal}).
+	
+	Fully coupled atmosphere-ocean general circulation models and ocean-sea ice models simulate a complete representation of the global ocean and are now increasingly used to assess the OHC evolution. However, fully-coupled models from the Coupled and Flux-Anomaly-Forced Model Intercomparison Projects (CMIP\cite{eyring2016cmip6} and FAFMIP\cite{gregory2016FAFMIP} respectively) generally exhibit larger biases than ocean-sea ice models, and simulate an internal climate variability that is independent of observations. Modelling studies have investigated recent trends mainly in idealised settings\cite{gregory2016FAFMIP,dias2020heatstorage} or in coupled simulations with an independent climate variability\cite{frolicher2015dominance,eyring2016cmip6}. In contrast, ocean-sea ice models are constrained by atmospheric fields from a reanalysis product, and therefore follow the observed trajectory of internal and forced climate variability. This will be the approach taken in this study.
+	
+	Global climate models (both fully coupled and ocean-sea ice only) suffer from internal model drift due to errors in the representation of physical processes, and thus they require a spin-up to equilibrate their climate and minimise drift. In ocean-sea ice models, a common spin-up approach, used for the Ocean Model Intercomparison Project phase 2 (OMIP-2)\cite{tsujino2020omip}, applies six repeat cycles of 1958--2018 atmospheric forcing from the Japanese reanalysis data set JRA55-do\cite{tsujino2018jra}. However, there are two limitations associated with this approach: (1) after each cycle, the model experiences a large shock and associated recovery period when the forcing suddenly switches from the year 2018 back to 1958 and (2) it is unclear how to account for model drift without a parallel running control simulation (Extended Data Fig. 1a).
+	
+	In this study we address these limitations of the OMIP-2 approach by introducing a new spin-up protocol for global ocean-sea ice models and illustrate its benefits using the ACCESS-OM2 ocean-sea ice model\cite{kiss2020access}. The spin-up is performed using repeat decadal cycles of the JRA55-do reanalysis forcing from 1962--1971, corrected for pre-industrial times, to equilibrate the model to a state prior to the recent rapid acceleration in OHU (Fig. \ref{fig:spin-up} and Methods). There are no longer large initial shocks at the beginning of each spin-up cycle and we can account for model drift by subtracting the linear trend from a parallel control repeat-decade simulation (Fig. 1b, c). Using this new approach in an observationally constrained model gives us an estimate of the actual trajectory of OHC, including the multi-decadal internal variability since the 1970s. By decomposing the atmospheric trends into processes and regions (Methods), we can attribute the global heat uptake by drivers and basins over this period.
+	
+	% in simulations with global and regionally-constrained atmospheric trends (Methods). 
+	% Using this new approach we estimate ocean heat uptake, transport and storage trends over the last 50 years in simulations with global and regionally-constrained atmospheric trends (Methods). 
+	% While recent observation-based studies have focused on trends over much shorter time periods (e.g., since 2005\cite{roemmich2015planetary} or since the early 1990s\cite{shi2021SOwarmingzonal}), modelling studies have investigated trends either in idealised settings\cite{gregory2016FAFMIP,dias2020heatstorage} or in coupled simulations with an independent climate variability\cite{frolicher2015dominance,eyring2016cmip6}. The approach here focuses on the last 50-years and, using an observationally constrained model, gives us an estimate of the actual trajectory of OHC, including the multi-decadal internal variability. By decomposing the atmospheric trends into processes and regions, we can attribute the global heat uptake by drivers and individual basins over this period.
+	
+	% Consequently, this new spin-up procedure leads to improvements in the OHC trajectory from the 1960s onward (Extended Data Fig. 2a). 
+	% ... a simulation where all forcing fields evolve over time (the full forcing simulation). 
+	% We also perform additional simulations that isolate changes driven by trends in surface winds only (the wind-only simulation), trends in atmospheric thermodynamic properties only (i.e., atmospheric temperature, humidity and radiation changes, hereafter referred to as the thermal experiment) or regional atmospheric trends only. In these experiments, any unperturbed forcing fields continue cycling through the repeat 1962-1971 forcing (Methods).
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\section*{Results}
+	\subsection{Global ocean heat uptake}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	The observations of upper 2000 m global OHC\cite{levitus2012global} reach 2.40 $\times$ 10$^{23}$ J in 2017 relative to the 1972--1981 baseline (dashed red line, Fig. \ref{fig:global}a). We choose this baseline as it ends before the volcanic eruption of El Chicho\'n in mid-1982 and the OMIP-2 models prior to 1972 undergo a very strong global cooling period (Extended Data Fig. 2a). The multi-model mean from the fully coupled CMIP6 model suite (light blue line in Fig. \ref{fig:global}a) tracks the observed OHC estimate closely, however with an increasingly large spread among ensemble members. The full forcing ACCESS-OM2 hindcast simulates a global OHC increase of 1.73 $\times$ 10$^{23}$ J in the upper 2000 m (capturing 72\% of the observational estimate). 
+	
+	This simulation improves considerably on the ACCESS-OM2 simulation that used the OMIP-2 spin-up approach, which lies at the bottom of the OMIP-2 ensemble (cf. black and dark blue lines in Fig. \ref{fig:global}a). The hindcast also improves on most of the other 11 OMIP-2 models\cite{tsujino2020omip}, whose multi-model-mean reaches 0.94 $\times$ 10$^{23}$ J in 2017, and captures a more realistic rise in OHC without the rapid spurious global cooling adjustment prior to 1972 (Extended Data Fig. 2a). There is no control simulation available to use for de-drifting in the OMIP-2 protocol, and we have attempted to de-drift the global OHC by fitting and removing a linear trend over the last two OMIP-2 cycles (e.g., dark blue line, Extended Data Fig. 1a). Without this de-drifting, the positive trend in OHC in the OMIP-2 models would be even weaker (see also Fig. 24e in Tsujino et al., 2020\cite{tsujino2020omip}). If a similar additive improvement, that we see in ACCESS-OM2, were applied to the other models in the OMIP-2 ensemble, then the multi-model mean of an ensemble using our alternative spin-up approach would reach an upper 2000 m OHC anomaly of 2.31 $\times$ 10$^{23}$ J in 2017, within four percentage points of the observations\cite{levitus2012global}.
+	
+	The spatial trend of the upper 2000 m OHC in the full forcing simulation corresponds well with Argo observations\cite{argo2017gridded} (Fig. \ref{fig:global}b, c and CMIP5 models over 2005--2015\cite{rathore2020asymmetry}), especially in the tropical Pacific and the Northern Atlantic. However, accumulation of anomalous heat in the model is reduced in the South Atlantic compared to Argo, and is likely caused by reduced ocean heat convergence in this region (see below). Most of the excess heat absorbed during this period is stored in the Southern Hemisphere (66.0\% of the globally integrated trend relative to 72.7\% in Argo). Over this shorter 2006-2017 period, the hemispheric asymmetry has been linked to decadal climate variability\cite{rathore2020asymmetry}, the asymmetry in anthropogenic forcing\cite{irving2019anthropogenic}, the greater area of the Southern Hemisphere ocean\cite{Wijffels2016temperature} as well as anomalous ocean heat transport\cite{roemmich2015planetary}.
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\subsection{Heat uptake, transport and storage rates}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	In order to quantify the spatial distribution of OHC trends, we consider the vertically integrated heat budget which expresses the OHC tendency (termed here heat storage) as the sum of the anomalous net surface heat flux (heat uptake) and the convergence of the anomalous vertically integrated ocean heat transport (Eq. \ref{eq:OHC_bal}, Methods). Globally integrated, the full-depth heat uptake/storage rate over the last half century in the full forcing simulation is 5.4 $\times$ 10$^{21}$ J year$^{-1}$ (Fig. \ref{fig:OHU_trans_OHC}a). While trends have accelerated over the last 20 years, the spatial pattern of heat uptake has remained robust (cf., Fig. \ref{fig:OHU_trans_OHC}a and Extended Data Fig. 3a). The Southern Ocean dominates heat uptake with a rate of 6.9 $\times$ 10$^{21}$ J year$^{-1}$. The dominant role of this region is a consequence of the strong heat fluxes into the ocean where sea surface temperatures (SSTs) are colder than the overlying atmosphere. These cold SSTs are maintained by strong westerly winds that drive upwelling of cold water to the surface, insulating the Southern Ocean from forced changes, and driving efficient heat uptake from the atmosphere\cite{armour2016southern,marshall2015transient,frolicher2015dominance,morrison2016southern}. In this simulation, heat uptake occurs predominantly in the Indian and Pacific sectors of the Southern Ocean. Northward Ekman transport subsequently subducts these water masses along isopycnals into mode and intermediate water layers\cite{morrison2016southern}. Heat storage is also significant in the Atlantic sector of the Southern Ocean where it arises primarily from the convergence of oceanic heat transport rather than from local atmospheric heat uptake (Fig. \ref{fig:OHU_trans_OHC}a, b).
+	
+	Patterns of heat uptake outside of the Southern Ocean are more variable. Heat loss is dominant in the Atlantic basin (--1.9 $\times$ 10$^{21}$ J year$^{-1}$), especially north of 45$^{\circ}$N. The Atlantic heat loss arises from its connection to the Southern Ocean via the Atlantic Meridional Overturning Circulation (AMOC). The AMOC transports 42\% (2.9 $\pm$ 0.2 $\times$ 10$^{21}$ J year$^{-1}$) of the additional heat taken up in the Southern Ocean northward into the Atlantic (red arrow in Fig. \ref{fig:OHU_trans_OHC}b), where two-thirds thereof is lost to the atmosphere via ocean-air heat fluxes. Compared to observations, the model's AMOC maximum at 26.5$^{\circ}$N is weak (9.1 Sv relative to the observed estimate of 17 Sv over 2004--2012\cite{mccarthy2015AMOC}, 1 Sv = 10$^{6}$ m$^{3}$ s$^{-1}$, Extended Data Fig. 4a), lower than most other OMIP-2 models\cite{tsujino2020omip}, and may thus lead to weaker anomalous Southern Ocean heat export into the Atlantic. However, the changes in the AMOC strength in the full forcing simulation of $\sim$1 Sv are small compared to the decadal variability of $\pm 2$ Sv (black line, Extended Data Fig. 4a). 
+	
+	Heat uptake in the Indian and Pacific subtropical and tropical basins plays only a minor role on the global scale (Fig. \ref{fig:OHU_trans_OHC}a). This is likely because the Indian and Pacific basins lack a convection-driven deep circulation\cite{godfrey2001tropical,talley2011descriptive} that would efficiently take up heat over multi-decadal time scales. In addition, heat uptake in the tropics is inhibited by the warming response of the SST (Fig. \ref{fig:OHU_trans_OHC}d).  In contrast, at the high latitudes of the Southern Ocean, the SST increases at a rate that keeps pace with local atmospheric warming (due to wind-driven Ekman effects) creating favourable conditions for continuous ocean heat uptake (Fig. 2d). 
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\subsection{Wind versus thermal effects}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	We next consider a set of hindcast simulations that isolate the impact of thermodynamic- (including air temperature, humidity and downward radiation) and wind-driven atmospheric changes over the global ocean and specific regions to better understand the drivers of recent OHU (Methods). In the wind-only simulation, zonal and meridional surface winds evolve over time while the other forcing fields are held fixed in the 1960s (and vice versa for the thermal experiment). The approach here differs from coupled and flux-anomaly forced ocean-sea ice model simulations that also aim to isolate contributions from winds and other changes\cite{gregory2016FAFMIP,todd2020oceanFAFMIP} in that our experiments are forced by atmospheric trends from reanalysis instead of, for example, doubled atmospheric CO$_2$ concentrations, and thus they capture the observed trajectory of internal climate variability. The strong decadal variability in our simulations arises from the portion of the atmospheric forcing (whether thermal or wind forcing) that cycles through the repeat decade (Fig. \ref{fig:time_series_hist}a, b).
+	
+	The two simulations that include only either thermal or surface wind trends explain 57\% and 40\% of the global OHC trend of 5.4 $\times$ 10$^{23}$ J (Fig. \ref{fig:time_series_hist}a, c). As in the full forcing simulation, heat uptake in both thermal- and wind-only experiments is dominated by the Southern Ocean (3.1 and 3.9 $\times$ 10$^{21}$ J year$^{-1}$, Extended Data Fig. 5a, e). In the wind-only simulation, Southern Ocean heat uptake is large because the SST cools as a result of enhanced northward Ekman transport of cool fresh Antarctic surface waters (Fig. \ref{fig:zonal}a, b). This heat uptake is driven by reduced sensible and upward longwave heat losses associated with the negative SST anomalies (Fig. \ref{fig:zonal}c,d). Some compensation by latent and upward shortwave heat flux anomalies, due to increases in sea ice, are associated with cooling in this region\cite{wendler1997radbudget_sice} (Extended Data Table 1). It is important to note that wind changes also have a direct impact on sensible and latent heat fluxes through their dependence on wind speed in the model's bulk formulae. As opposed to the wind-only experiment, heat uptake in the thermal-only experiment is associated mainly with changes in downward longwave radiation (Fig. \ref{fig:zonal}c), which appear more important than air temperature changes (as the sensible heat flux anomalies are reduced). Integrated over the Southern Ocean, the sensible heat flux drives almost double the heat uptake than the longwave radiative flux in the wind-only simulation (3.7 vs. 1.9 $\times$ 10$^{21}$ J year$^{-1}$), while in the thermal-only simulation heat uptake through downward longwave radiation is more dominant (3.0 vs. 2.4 $\times$ 10$^{21}$ J year$^{-1}$, Extended Data Table 1). 
+	
+	Both changes in surface winds and atmospheric thermodynamic properties can affect the export of anomalous heat from the Southern Ocean  into the Pacific, Indian and Atlantic basins via the meridional overturning circulation. In particular, in the wind-only simulation, anomalous heat export northward is stronger than in the thermal-only simulation, due to the stronger westerlies which in turn increase the Ekman transport and thus the Southern Ocean's overturning circulation (Fig. S4b, f). In contrast, the parameterised submesoscale eddy mixing, eddy advection and diffusion schemes play a minor role in contributing to ocean heat transport changes into the Atlantic and Indo-Pacific. In a fully coupled framework, Liu et al. (2018)\cite{liu2018southern} showed that in response to quadrupled atmospheric CO$_{2}$ concentrations, the poleward-strengthened westerlies displace and intensify the Southern Ocean's meridional overturning circulation which results in anomalous heat transport divergence at 60°S and increased surface heat fluxes while the opposite was shown for 45$^{\circ}$S. In our wind-only simulation, we see strong heat transport divergence at almost all latitudes of the Indian and Pacific sectors of the Southern Ocean, while heat converges in the Atlantic sector between 60$^{\circ}$S-45$^{\circ}$S (Extended Data Figure 5b), likely because the Southern Ocean surface wind trends in JRA55-do are strongest in the Indian and Pacific sectors. We agree with Liu et al. (2018)\cite{liu2018southern}, that wind stress changes are likely the primary drivers of ocean heat content change in the wind-only simulation (through their induced SST changes), rather than the direct wind-speed related turbulent heat flux change.
+	
+	% Different from our results here, Liu et al. (2018)\cite{liu2018southern} also showed that wind effects primarily alter the ocean circulation while the surface wind speed change, as involved in the bulk formula of turbulent heat fluxes, has a minimal influence on ocean heat uptake and redistribution over the Southern Ocean.
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\subsection{Regional contributions}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	On the global scale, the OHC trend can be reproduced when atmospheric trends in both winds and thermodynamic properties are applied only over the Southern Ocean south of 44$^{\circ}$S (with repeat decade forcing applied north of this latitude, Fig. \ref{fig:time_series_hist}b). However, an important regional difference between the full forcing and Southern Ocean-only forced simulation is that in the latter heat storage is larger in the Pacific, Indian and Atlantic Oceans and smaller in the Southern Ocean (cf., black and dark red bars in Fig. \ref{fig:time_series_hist}c). This is mainly caused by the enhanced northward heat transport in the Southern Ocean-only experiment across 36$^{\circ}$S (5.3 relative to 4.5 $\times$ 10$^{21}$ J year$^{-1}$ in the full forcing simulation), despite similar Southern Ocean heat uptake rates in both simulations (6.98 vs. 6.97 $\times$ 10$^{21}$ J year$^{-1}$, Fig. \ref{fig:OHU_trans_OHC}a, b and Extended Data Fig. 6a, b). Heat transport rates are also influenced by the tapering zones between the repeat decade and interannual forcing in the Southern Ocean-only experiment. In addition, the Pacific and Atlantic basins experience weak heat loss across the surface due to these basins being forced by the cooler 1960s atmosphere (Extended Data Fig. 6a).
+	
+	Performing an experiment with interannual trends applied only north of $44^{\circ}$S or just over the tropics 30$^{\circ}$S--30$^{\circ}$N, shows a global OHC trend of 0.3--0.4 $\times$ 10$^{21}$ J year$^{-1}$ (Fig. \ref{fig:time_series_hist}c). A positive trend, distinct from the repeat decade forcing oscillation, emerges only in the mid--1990s (light pink line, Fig. \ref{fig:time_series_hist}a), and is likely linked to the observed shift of the Interdecadal Pacific Oscillation into a negative phase. This favours La Ni\~na-like conditions with increased trade winds and enhanced tropical heat uptake\cite{england2014recent,henley2017IPO}. OHC trends over the 1992--2011 period from the tropical 30$^{\circ}$S--30$^{\circ}$N experiment appear mainly centred on the Equator in the western Pacific at 150 m depth (Extended Data Fig. 7), and are consistent with the observed trends over the same period\cite{england2014recent}. A rapid increase in Indian Ocean heat content since the year 2000 has also been shown in observations\cite{Lee2015hiatus} and occurs in a simulation with interannual trends restricted to only the Indian Ocean (not shown). This signal has been linked to the enhanced trade winds that strengthened warm water transport across the Indonesian Throughflow since the early 2000s\cite{Lee2015hiatus, maher2017role}. However, over the 50-year time period, Interdecadal Pacific Oscillation-related trade wind and OHC changes for the most part cancel each other out as this climate mode underwent a full oscillation\cite{england2014recent,meehl2016prediction}. Additional model experiments with the interannual atmospheric trend forcing only applied over individual ocean basins north of 44$^{\circ}$S/35$^{\circ}$S (Pacific-only/Indian- and Atlantic-only experiments, Methods) reveal only minor OHC trends (Extended Data Fig. 8, 9).  This emphasises the key role of the Southern Ocean in driving global ocean heat content trends over the past half century.
+	
+	% Applying atmospheric trends only over the Pacific (north of 44$^{\circ}$S) and Indian basins (north of 35$^{\circ}$S, Methods) also only results in minor OHC trends (Extended Data Fig. 6, 7), while restricting interannual forcing to the Atlantic north of 36$^{\circ}$S leads to global cooling with a rate of --1.2 $\times$ 10$^{21}$ J year$^{-1}$ (Extended Data Fig. 6b, 7i). In the Atlantic-only experiment, strong North Atlantic cooling is linked to a modest increase in the mean strength of the AMOC ($\sim$1 Sv, Extended Data Fig. 8) and cooling is partially offset by increased ocean heat export into the Atlantic from the Southern Ocean (\Extended Data Fig. 7k).
+	
+	% Anomalous heat transport into the Atlantic by the ocean circulation is 25\% stronger in the wind than in the thermal simulation (Extended Data Fig. 4b, 4f). This is likely connected to the increased Southern Ocean westerlies that drive a larger northward Ekman transport.
+	
+	% From these basin-wide simulations, we can conclude that forcing separately over the different basins north of 44$^{\circ}$S results in non-linearities that are up to 30\% larger compared to running the experiment with atmospheric trends restricted to north of the Southern Ocean (i.e., the Mid and High Northern latitude experiment).
+	
+	% Applying atmospheric trends only over the Pacific and Indian basins results in minor OHC trends over the last 50 years (Extended Data Fig. 6, 7). Restricting interannual forcing to the Atlantic Ocean north of 36$^{\circ}$S leads to global cooling with a rate of --1.2 $\times$ 10$^{21}$ J year$^{-1}$ (Extended Data Fig. 6b, 7i). In the Atlantic-only experiment, strong North Atlantic cooling is linked to an increase in the mean strength of the AMOC ($\sim$1 Sv, Extended Data Fig. 8) and cooling is partially offset by increased ocean heat transport into the Atlantic from the Southern Ocean (Extended Data Fig. 7k). The Pacific-only simulation (Extended Data Fig. 7a-d) mirrors many characteristics of the tropical 30$^{\circ}$S--30$^{\circ}$N simulation during the 1992--2011 period, namely a weaker Indonesian Throughflow, the build-up and loss of heat in the western and eastern Pacific on decadal time-scales as well as increased northward ocean heat transport from the Southern Ocean into the Pacific. 
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\section*{Discussion}
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	We have documented the evolution of ocean heat uptake, transport and storage over the last 50 years in a global ocean-sea ice model following a spin-up approach that improves on past simulations of OHC trends using the standard OMIP-2 protocol. The full forcing hindcast simulation considerably improves on the simulation with the same model but using the OMIP-2 spin-up, and reproduces the estimated trajectory of OHC in observations better than most OMIP-2 ensemble members. If the OMIP-2 project would follow the spin-up approach presented here, it is likely that both the multi-model mean and ensemble spread in Fig. \ref{fig:global}a would shift upwards and better capture the observed trends. 
+	
+	Changes in surface winds and thermodynamic properties over the Southern Ocean each drive about half of the global heat uptake signal over the last half century (Fig. \ref{fig:schematic}). These heat changes have important consequences for the zonal transport of the Antarctic Circumpolar Current with continued warming likely further accelerating the zonal flow\cite{shi2021SOwarmingzonal}. As in the simulations with full or basin-wide forcing, heat uptake in the wind- and thermal-only experiments in the Indian and Pacific basins is minor, while the Atlantic Ocean is consistently losing heat across its surface (blue arrows, Fig. \ref{fig:schematic}). In the full forcing as well as the wind- and thermal-only simulations, northward heat export from the Southern Ocean into the Atlantic dominates over export into the Indian and Pacific basins. While the Indo-Pacific plays only a minor role in multi-decadal heat uptake and storage, it can substantially impact global OHC trends over shorter periods through enhanced ocean heat uptake and reduced SST warming associated with the Interdecadal Pacific Oscillation\cite{Meehl2011deepOHU} (e.g., during global warming hiatus periods such as from 2000--2009). 
+	
+	Over the last twenty years of the full forcing simulation, the weakening AMOC in the North Atlantic (Extended Data Fig. 4) may be linked to positive redistribution feedbacks that have been previously described in a coupled climate model\cite{Liu2020AMOC}. In this feedback, a weakened AMOC decreases meridional heat transport in the North Atlantic, leading to a divergence of heat, cooler SSTs and increased heat uptake in the subpolar gyre, which in turn further weakens the AMOC\cite{Couldrey2021SLChange,Liu2020AMOC}. It is unclear if this feedback mechanism is contributing to the North Atlantic changes in the full forcing simulation, as heat uptake north of the Equator decreases (--0.6$\times$ 10$^{21}$ J year$^{-1}$) and heat transport increases (+0.6$\times$ 10$^{21}$ J year$^{-1}$) over the last twenty years of the run, compared to the full period.
+	
+	Limitations in our results arise from the use of a single model with a 1$^{\circ}$ horizontal resolution, the biases related to errors in the model's representation of physical processes, uncertainties in reconstructing past atmospheric forcing and the rounding errors in our calculations that lead to small differences (in the 1--2\% or less) between the globally integrated ocean heat uptake and storage trends. Uncertainties also arise from inherent uncertainties in the reanalysis product used, including the reliability of the implied radiative heat flux trends due to both greenhouse gases and aerosols, which remain poorly constrained in observations. Heat transport and heat loss across the surface can be dependent on the model resolution\cite{grist2018atlantic_heat} with biases expected to decrease in a finer grid\cite{tsujino2020omip}. However, the model configuration used here matches the typical resolution of most OMIP-2 and CMIP6 ensemble members, and heat content anomalies following the OMIP-2 protocol are similar when using the higher resolution configurations of the model (Extended Data Fig. 1b). The low computational cost of the model we employ also allowed us to minimise deep ocean model drift with a long spin-up and permitted a suite of multi-decadal simulations that would otherwise be too expensive to explore using higher-resolution models.
+	
+	In summary, our experiments emphasise that recent trends in Southern Ocean winds, surface air temperature and radiation have driven almost all of the globally integrated ocean warming of the past half century. Increased observational coverage over the Southern Ocean is therefore key to reconcile global surface heat fluxes, ocean heat uptake and heat content changes, as well as building increased confidence in climate models and climate change projections for the coming decades.
+	
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{methods}
+		% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+		\section*{Model, forcing and spin-up}
+		We use the global ocean-sea ice model ACCESS-OM2\cite{kiss2020access} in a $1^{\circ}$ horizontal resolution configuration with 50 z* vertical levels. ACCESS-OM2 consists of the Geophysical Fluid Dynamics Laboratory MOM5.1 ocean model\cite{griffies2012elements} coupled to the Los Alamos CICE5.1.2 sea ice model\cite{hunke2015cice} via OASIS3-MCT\cite{craig2017oasis-mct}. Atmospheric forcing for the model is derived from a prescribed atmospheric state using the Japanese Reanalysis product JRA55-do-1-3\cite{tsujino2018jra} which covers the period 1958--2018. The forcing fields are zonal and meridional wind speed, air temperature and specific humidity at 10 m as well as downward short- and longwave radiation, rain- and snowfall, river and ice-related runoff and sea level pressure at the ocean's surface. These fields are used to calculate zonal and meridional wind stress, surface heat and freshwater fluxes using bulk formulae\cite{fairall1996bulk}. More details on the model setup and performance can be found in Kiss et al. (2020)\cite{kiss2020access}.
+		
+		We perform a 2000-year spin up of the model initiated from World Ocean Atlas 2013 v2 conditions\cite{locarnini2013world} using modified repeat cycles of the JRA55-do 1962--1971 decade. We choose this decade as it has no extreme El Ni\~no-Southern Oscillation events or tendencies\cite{huang2015extended} and is close to neutral conditions in the Interdecadal Pacific Oscillation (IPO index: --0.1)\cite{power1999interdecadal}. However, it has a positive Southern Annular Mode and three positive Indian Ocean Dipole events occurred in this period\cite{saji1999IOD}. The choice of this decade is a compromise between an early period with limited observations where our confidence in the atmospheric forcing is low, and later periods where the anthropogenic signal is larger and the hindcast experiments would be shorter.
+		
+		For the first 1910 years of the spin-up, we subtract from the repeat 1962--1971 forcing a pre-industrial offset of 0.133$^{\circ}$C from the surface air temperature and 0.7 W m$^{-2}$ from the downward longwave radiation fields. This is to equilibrate the model to an estimate of the pre-industrial climate instead of a 1960s climate that already incorporates an anthropogenic footprint. Additionally, we modify the specific humidity in order to keep the relative humidity constant and avoid overly impacting evaporation and the latent heat flux. The surface air temperature offset is calculated from the difference between the mean during the 1962--1971 period and the years 1850--1879 in the HadCRUT5\cite{morice2021hadcrut_updated} data set (light blue and orange lines, Fig. \ref{fig:spin-up}a). The offset in downward longwave radiation is consistent with values presented in the fifth Assessment Report of the Intergovernmental Panel for Climate Change (IPCC AR5, Fig. SPM.5)\cite{IPCCAR5SPM}. The overall ratio of surface air temperature to downward longwave radiation offsets is the same as in the study by Stewart and Hogg (2019)\cite{stewart2019southern} where they used offsets derived from the CMIP5 historical and moderate greenhouse gas emission scenario (RCP4.5) to run idealised climate change hindcast experiments. As in IPCC AR5 Fig. SPM.5\cite{IPCCAR5SPM}, the uncertainty in the pre-industrial offset of downward longwave radiation (and surface air temperature) is likely as large as the value itself, but it is a reasonable approach given the limited data available from pre-industrial times. 
+		
+		The period 1910--2000 of the spin-up (i.e., 1882--1971 Current Era) is the transitional period where we linearly reduce the offsets in the forcing fields back to 1962--1971 levels (dark blue and dark red lines, Fig. \ref{fig:spin-up}a). This represents the developing anthropogenic impact on the ocean between the pre-industrial state and the warmer 1960s climate. In year 2000 of the spin-up (i.e., year 1972 Current Era), the interannually-forced hindcast simulations begin. The control simulation is a continuation of the pre-industrial spin-up with modified repeat decade forcing beyond 1972 (light blue line, Fig. \ref{fig:spin-up}a).
+		
+		\section*{Hindcast experiments}
+		We run a set of simulations that combine both climatological (1962--1971) and interannual (1971--2017) forcing to investigate the contribution of changing surface winds, thermodynamic properties and the role of individual oceanic regions to anomalous heat uptake since the 1970s.
+		
+		The wind and thermal simulations include forcing the model over 1972--2017 with interannual zonal and meridional surface wind trends (the wind-only experiment) or combined surface air temperature, humidity, radiation, freshwater and sea level pressure trends (the thermal-only experiment), while repeat decade forcing is used for the other forcing fields. The hindcast experiments here do not allow a complete separation between buoyancy effects (including heating) and wind effects because buoyancy and heat fluxes both change in each of  the wind- and thermal-only experiments; for example, the winds can force an SST change that will feed back and alter the sensible heat flux fields. Likewise the thermally-forced experiment can include changes in wind stress wherever ocean circulation changes are simulated, because the wind stress is controlled by the difference between wind speed and ocean current speed, although this effect is generally second order. While surface air temperature and radiation variations dominate the signal in the thermal-only simulation, freshwater fluxes can also contribute to changes in ocean circulation and thus ocean heat uptake and redistribution via changes in, for example, the meridional overturning circulation in the Atlantic and Southern Oceans\cite{Winton2013connecting,gregory2016FAFMIP}.
+		
+		The regional simulations (hereafter Southern Ocean-only, North of 44$^{\circ}$S, Tropics-only 30$^{\circ}$S--30$^{\circ}$S, Pacific-, Indian- and Atlantic-only forcing simulations) include applying interannual trending atmospheric fields over a specific region of the global ocean while repeat decade forcing is applied over the remaining ocean area (e.g., blue contours in Extended Data Fig. 9). For these simulations, a linear smoothing boundary region of 4$^{\circ}$ latitude/longitude is used to combine the two forcing fields. For the Southern- and Pacific Ocean-only simulations, we choose the boundaries at 44$^{\circ}$S as this latitude marks the poleward extent of the shallow subtropical cells. For the Indian and Atlantic Ocean simulations, we set the southern interannual forcing/repeat decade forcing boundary to 35$^{\circ}$S at the southern tip of Africa.
+		
+		\section*{Ocean heat content calculations}
+		Heat content, 
+		\begin{equation}
+		H = \iiint\rho_0 C_p \Theta \,\mathrm{d}V,
+		\end{equation}
+		is calculated using a reference density $\rho_0 = 1035$ kg m$^{-3}$, a specific heat capacity $C_p = 3992.1$ J kg$^{-1}$ K$^{-1}$, the model's prognostic temperature variable Conservative Temperature $\Theta$\cite{McDougall2003enthalpy,TEOS10} (K) and the (time-variable) grid cell volume $\mathrm{d}V$ (m$^{3}$). 
+		
+		The vertically integrated Eulerian heat budget can be expressed as
+		\begin{equation}
+		\frac{\partial}{\partial t} \int_{z}^{0} H dt = Q_{net} -  \nabla_{h}\cdot \bm{F}, \label{eq:OHC_bal}
+		\end{equation} 
+		where the left-hand side is the depth integrated heat content tendency at a given location (J~m$^{-2}$~year$^{-1}$) between depth $z$ and the surface, $Q_{net}$ is the net surface heat flux and $\nabla_{h}\cdot \bm{F}$ is the divergence of the vertically integrated ocean heat transport. Changes in heat content arise from changes in heat exchange with the atmosphere (heat uptake) and/or from changes in the convergence of horizontal ocean heat transport. The anomalous heat uptake rate is calculated by first time integrating the net surface heat flux tendencies, including the turbulent (latent and sensible), radiative (short- and longwave), surface volume flux-associated and sea ice exchange components, before removing the linear trend in the time integrated tendencies of the control simulation, and finally fitting a linear trend to the result. The heat storage rate is calculated similarly. The heat transport convergences are calculated as the residual between heat uptake and storage (Eq. \ref{eq:OHC_bal}). These calculations would be more difficult without a parallel-running control simulation (not available as part of OMIP-2) that can be used to remove drift as well as the steady-state pattern of heat input at low-latitudes and heat loss at high-latitudes connected by meridional ocean heat transport.
+		
+		Ocean heat transport (OHT) rates across individual transects are calculated from the vertical integral of horizontal advective and parameterised diffusive, mesoscale- and submesoscale heat fluxes accumulated online. Uncertainties in these heat transport rates arise from the presence of non-zero net volume fluxes, which result in a dependence of the cross-transect heat transport on the arbitrary reference temperature\cite{holmes2019atlantic,forget2019OHT}. We estimate the uncertainty in the anomalous heat transport rate based on the change in the volume transport across the transect $\Delta\Psi$ (m$^{3}$ s$^{-1}$) and a maximum possible range for the temperature $(\Delta\Theta)^{\text{max}}$ at which that net volume transport could be assumed to return:
+		\begin{equation}
+		\Delta\text{OHT} = \pm \rho_0 C_p \frac{(\Delta\Theta)^{\text{max}}}{2} \Delta\Psi.
+		\end{equation}
+		We define $(\Delta\Theta)^{\text{max}}$ to be $30^{\circ}$C, an estimate of the maximum temperature range of the model. For example, if the maximum temperature of water transported through the Indonesian Throughflow is $30^{\circ}$C, then the maximum ambiguity in the change in heat transport is estimated by assuming that this water returns back into the Pacific via the Southern Ocean at $0^{\circ}$C. This issue is discussed in more detail in Section S3 in the Supporting Information of Holmes et al. (2019)\cite{holmes2019atlantic} and in Forget and Ferreira (2019)\cite{forget2019OHT}.
+		
+		\section*{CMIP6 products}
+		To compare the simulations in this study to atmosphere-ocean general circulation models, we analyse 16 ensemble members from CMIP6 as shown in the Extended Data Table 3. The choice of the models and anomaly calculation is based on Irving et al. (2021)\cite{irving2021drift} and includes first taking a cubic fit of the globally integrated 0--2000 m OHC over the length of the pre-industrial control simulation in each model. The length of this control simulation can be between 500--6000 years depending on the model. This fit is then subtracted from the historical simulation (ending in 2014) and SSP5-8.5 (2014--2017) projection simulation before the removal of the baseline 1972--1981 period.
+	\end{methods}
+	
+	\begin{addendum}
+		\item[Data Availability] The model data to recreate the figures in this study have been deposited online in the Zenodo database under https://doi.org/10.5281/zenodo.6825334\cite{huguenin2022ohcscripts}. The full model output is stored on the National Computational Infrastructure and available upon contact to the first author. The Argo data were collected and made freely available by the International Argo Program and the national programs that contribute to it (http://www.argo.ucsd.edu, http://argo.jcommops.org). The Argo Program is part of the Global Ocean Observing System (http://doi.org/10.17882/42182). The product we used here was produced at the China Argo Real-time Data Center and available at http://www.argo.org.cn/index.php?m=content\&c=index\&a=lists\&catid=101. The CMIP6 data is available at the Earth System Grid Federation: https://esgf-node.llnl.gov/projects/cmip6/.
+		
+		\item[Code Availability] The analysis scripts to create the forcing for the JRA55-do-1-3 repeat decade spin-up and to reproduce the figures are published online in the Zenodo database under https://doi.org/10.5281/zenodo.6825334\cite{huguenin2022ohcscripts}.
+		
+		\item We thank Hiroyuki Tsujino and Hakase Hayashida for providing access to the OMIP-2 model output, Damien Irving and Taimoor Sohail for calculating the CMIP6 time series and we thank the CMIP and Argo projects for providing access to their data sets. We thank the Consortium for Ocean-Sea Ice Modelling in Australia (COSIMA; www.cosima.org.au) for their technical help, continued development and for making the ACCESS-OM2 model available at https://github.com/COSIMA/access-om2. The simulations in this project were conducted with resources and services from the National Computational Infrastructure which is supported by the Australian Government. M. F. H. is supported by a Scientia PhD scholarship from the University of New South Wales (Program code 1476), R. M. H. is supported by the Australian Research Council (ARC) grant DE21010004 and M. H. E. is supported by the ARC Australian Centre for Excellence in Antarctic Science and is also supported by the Centre for Southern Hemisphere Oceans Research (CSHOR), a joint research centre between QNLM, CSIRO, UNSW and UTAS. Additionally, this work was supported by both the ARC Australian Centre for Excellence in Antarctic Science (ACEAS; ARC Grant No. SR200100008) and the ARC Centre of Excellence for Climate Extremes (CLEX; ARC Grant No. CE170100023).
+		
+		\item[Author Contributions] M. F. H. performed the analyses and wrote the initial draft of the paper. All authors formulated the experimental design, contributed to interpreting the results and refinement of the paper.
+		
+		\item[Competing Interests] The authors declare no competing financial interests.
+		
+		\item[Additional Information] Extended Data Figures and Tables are available in the online version of the paper. Preprints and permissions information is available online at www.nature.com/reprints. Correspondence should be addressed to M. F. H.
+		% We also thank the developers of the open-source software packages python3\cite{vanrossum2009python}, xarray\cite{hoyer2017xarray} and numpy\cite{harris2020numpy}.
+	\end{addendum}
+	
+	% Figure 1. Experimental design
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}\centering
+		\includegraphics[width=.8\textwidth]{Fig1_experimental_design.pdf}
+		\caption{\textbf{Experimental design of the new spin-up}. \textbf{a}, Time series of global mean surface ocean air temperature anomalies during the last part of the ocean-sea ice model spin-up. The initial 1900 years of the spin-up are performed by applying repeat cycles of 1962--71 atmospheric reanalysis forcing, from which a pre-industrial offset of 0.133$^{\circ}$C has been removed (light blue line and value). In light pink the same anomalies from the observational data set HadCRUT5.1\cite{morice2021hadcrut_updated} which has a mean offset of 0.133$^{\circ}$C over 1850-1879 relative to the 1960s. During the transitional spin-up period, the offset increases by 0.017$^{\circ}$C decade$^{-1}$ (light blue value and linear trend) back to the 1960s level. This is to simulate the transition from the equilibrated pre-industrial to the warmer 1960s oceanic state. The 1960s decade, defined as the baseline, is shown as the grey shaded period from 1962--1971. From 1972 onward, interannual hindcast simulations are then branched off (e.g., the full forcing simulation in black). The parallel control simulation is obtained by continuing the modified pre-industrial spin-up (light blue line) unchanged through the transitional period past 1972. \textbf{b}, Time series of global ocean heat content during the five-cycle OMIP-2 spin-up (dark blue line and linear trend over the last two cycles, --3.55 $\times$ 10$^{21}$ J year$^{-1}$) and the pre-industrial spin-up (red line, 10$^{25}$ J). The offset between the two time series at year 1 of the spin-up is due to the use of updated temperature fields and bathymetric changes in the repeat decade spin-up. \textbf{c}, Inset of the last part of the spin-up, showing the transitional and hindcast periods with the 1962--1971 baseline period shaded in grey. The control simulation is given in light blue with its linear trend of --0.49 $\times$ 10$^{21}$ J year$^{-1}$ over 1972--2017. The black line is the ocean heat content in the full forcing simulation initialised in 1971.}
+		\label{fig:spin-up}
+	\end{figure} 
+	
+	% Figure 2. OHC anomalies in 0-2000 m
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}
+		\includegraphics[width=\textwidth]{Fig2_time_series_spatial_patterns.pdf}
+		\caption{\textbf{Recent global ocean heat content (OHC) anomalies in observations and hindcast model simulations.} \textbf{a}, Global ocean heat content anomalies (10$^{23}$ J) in the upper 2000 m from ocean reanalysis\cite{cheng2019evolution}, observations\cite{levitus2012global}, 25 fully coupled historical CMIP6 model runs\cite{eyring2016cmip6} (including their multi-model mean and $2\sigma$ variance), the new full forcing ocean-sea ice simulation (ACCESS-OM2 new spin-up, where all atmospheric forcing fields evolve over time), 11 de-drifted OMIP-2 ocean-sea ice model simulations\cite{tsujino2020omip} (including their multi-model mean, and $2\sigma$ variance) and the de-drifted ACCESS-OM2 OMIP-2-based simulation. For the individual time series of each CMIP6 and OMIP-2 ensemble member, see Extended Data Fig. 2. The two triangle markers highlight the volcanic eruptions of El Chich\'on in 1982 and Mount Pinatubo in 1991. The baseline period for all time series is 1972--1981. \textbf{b, c}, Spatial distribution of anomalous upper 2000 m ocean heat content trends over 2006--2017 in the Argo observations and in the full forcing ACCESS-OM2 simulation (10$^8$ J m$^{-2}$ year$^{-1}$).}
+		\label{fig:global}
+	\end{figure} 
+	
+	% Figure 3. OHU, Transport & OHC rates over 1972--2017
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}\centering % trim[left bottom right up]
+		\includegraphics[trim=2cm .5cm 13.5cm .25cm, clip, width=.58\textwidth]{Fig3_OHU_transport_OHC_SST.pdf}
+		\caption{\textbf{Spatial distribution of ocean heat uptake, transport, storage and sea surface temperature trends over 1972--2017 in the full forcing simulation (where all atmospheric forcing fields evolve over time)}. \textbf{a}, Time integrated net surface heat flux anomalies (10$^8$ J m$^{-2}$ year$^{-1}$) with positive heat uptake defined as into the ocean. The basin-wide values (10$^{21}$ J year$^{-1}$) show the total area integrated trends over a particular ocean basin with the boundaries set by the black lines across the Southern Ocean, the Indonesian Throughflow, the Bering Strait and the continental land masses. The Southern Ocean ends at 36$^{\circ}$S, the Bering Strait is at 65$^{\circ}$N and the Indonesian Throughflow is defined between Java, New Guinea (105$^{\circ}$W to 134$^{\circ}$W) at 3$^{\circ}$S and the Australian continent (20$^{\circ}$S to 6$^{\circ}$S) at 137$^{\circ}$E. The Atlantic Ocean contributions include the Arctic Ocean north of 65$^{\circ}$N and the marginal Hudson Bay, Baltic and Mediterranean basins. The Indian Ocean component also includes the Red Sea. The basin-wide values are rounded to one-decimal point accuracy. \textbf{b}, Anomalous heat transport convergence calculated as a residual from the \textbf{a} heat uptake and \textbf{c} heat storage (10$^8$ J m$^{-2}$ year$^{-1}$). The anomalous heat transport rates and their uncertainties across transects (10$^{21}$ J m$^{-2}$ year$^{-1}$) are calculated from anomalous heat and volume transports (Methods). \textbf{d}, Simulated sea surface temperature trends ($^{\circ}$C m$^{2}$ year$^{-1}$). Grid cells in \textbf{d} that have a climatological sea ice coverage above 85\% have been removed and are shaded white.}
+		\label{fig:OHU_trans_OHC}
+	\end{figure}
+	
+	% Figure 4. Time series & histograms hindcast simulations
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}
+		\centering{\includegraphics[width=.95\textwidth]{Fig4_time_series_and_histograms.pdf}}
+		\caption{\textbf{Simulated global and regional ocean heat content (OHC) changes due to thermal/wind trends and due to regionally-constrained atmospheric trends.} \textbf{a}, Time series of full-depth global ocean heat content anomalies (10$^{23}$ J) in the full forcing simulation (black line), when only prescribing surface wind trends (i.e., Wind-only) and when only prescribing thermodynamic trends (i.e., Thermal-only, Methods). The dashed blue line shows the anomalies in both wind- and thermal-only hindcast simulations added together. The two triangle markers highlight the volcanic eruptions of El Chich\'on in 1982 and Mount Pinatubo in 1991. The baseline period for all time series is 1972--1981. \textbf{b}, Time series for the hindcast simulations where combined interannual wind and thermodynamic forcing is applied only over the Southern Ocean (south of 44$^{\circ}$S), the mid- and high northern latitudes (north of 44$^{\circ}$S) and only over the tropics (30$^{\circ}$S--30$^{\circ}$N) with the remaining ocean area forced by the control repeat decade forcing. \textbf{c}, Basin integrated ocean heat content trends (OHC, 10$^{21}$ J year$^{-1}$) in the hindcast simulations of \textbf{a} and \textbf{b}.}
+		\label{fig:time_series_hist}
+	\end{figure}
+	
+	% Figure 5. Zonal trends
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}
+		\centering{\includegraphics[width=\textwidth]{Fig5_SO_zonal_trends.pdf}}
+		\caption{\textbf{Southern Hemisphere ocean heat uptake, sea surface temperature and surface air temperature, net longwave and sensible heat flux trends over 1972--2017.} \textbf{a}, Zonally integrated heat uptake in the simulations with full, wind-only and thermal-only forcing (10$^{15}$ J year$^{-1}$), equal to the zonal integral of the spatial structure shown in Figs. 2a and S4a, e. \textbf{b}, Zonal mean sea surface temperature and surface air temperature trends ($^{\circ}$C year$^{-1}$). \textbf{c, d}, The contribution of downward longwave and sensible heat fluxes to the total ocean heat uptake shown in panel \textbf{a} (10$^{15}$ J year$^{-1}$). The horizontal lines at 36$^{\circ}$S indicate the northern boundary of the Southern Ocean in our analysis. A 5-grid cell rolling mean has been applied in panels \textbf{a}, \textbf{c} and \textbf{d}.}
+		\label{fig:zonal} 
+	\end{figure}
+	
+	% Figure 6. Schematic
+	% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+	\begin{figure}
+		\centering{\includegraphics[trim=0 4cm 0 5cm, clip, width=1\textwidth]{Fig6_schematic_OHC.pdf}}
+		\caption{\textbf{Schematic summarising anomalous global ocean heat uptake, heat loss and heat transport over the last half century in different historical simulations.} The spatial pattern shows ocean heat storage rates in the full forcing simulation where all atmospheric forcing fields evolve over time (10$^{8}$ J m$^{-2}$ year$^{-1}$). The global ocean is divided into the Southern Ocean and the Indian, Pacific and Atlantic basins as in Fig. \ref{fig:OHU_trans_OHC}. The red and blue vertical arrows into and out of the plane show the basin integrated heat uptake and heat loss rates in the full forcing (left arrow), wind-only (middle arrow) and thermal-only (right arrow) simulations (10$^{21}$ J m$^{-2}$ year$^{-1}$). The black arrows show the heat transport rates in the same simulations (from left to right: full, wind-only and thermal-only forcing) across the transects that separate the basins (10$^{21}$ J m$^{-2}$ year$^{-1}$). The arrows are to scale, and values are rounded to one-decimal point accuracy. The transport rates across the Bering Strait are one magnitude smaller and not shown.}
+		\label{fig:schematic}
+	\end{figure}
+	
+	\pagebreak
+	\section*{References}
+	\bibliographystyle{naturemag} \bibliography{database}
+\end{document}
